@@ -17,10 +17,14 @@
   "description":"Description",
   "description Ar":"Description Ar",
   "consulter Type Critère":"Consulter Nature Critère",
-  
+  "détails_Nature_Critère":"Détails Nature Critère",
   "operations":"Opérations",
   "modifier_Nature_Critere":"Modifier Nature Critère",
-  "champ_obligatoire":" est un champ obligatoire"
+  "champ_obligatoire":" est un champ obligatoire",
+  "accueil":"Accueil",
+  "liste_nature_critere":"Liste Nature Critère"
+
+
 
 
 

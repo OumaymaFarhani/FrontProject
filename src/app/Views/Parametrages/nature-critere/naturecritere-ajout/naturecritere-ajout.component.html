@@ -1,18 +1,15 @@
 <div class="page-header">
 	<div class="row">
 		<div class="col-md-6 col-sm-12">
-			<div class="title">
-				<h4 class="text-blue h4" style="color: #1b00ff;">Ajout Nature Critère</h4>
-
-			</div>
+			
 			<nav aria-label="breadcrumb" role="navigation">
 				<ol class="breadcrumb" style="background: none;">
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/home']">Accueil
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
 						</a>
 					</li>
 					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-						Ajout Nature Critère
+						{{"ajout_nature_critere" | translate}}
 					</li>
 				</ol>
 			</nav>
@@ -101,6 +98,10 @@
 
 
 <div class="register-form">
+	<div class="title">
+		<h2 class="text-blue h4" style="color: #1b00ff;">{{"ajout_nature_critere" | translate}}</h2>
+
+	</div>
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
