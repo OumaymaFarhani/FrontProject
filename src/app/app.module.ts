@@ -19,6 +19,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NatureCritereviewOneComponent } from './Views/Parametrages/nature-critere/nature-critereview-one/nature-critereview-one.component';
+import { CategoriesprojetListComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-list/categoriesprojet-list.component';
+import { CategoriesprojetAjoutComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-ajout/categoriesprojet-ajout.component';
+import { CategoriesprojetEditComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-edit/categoriesprojet-edit.component';
+import { CategoriesprojetViewOneComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-view-one/categoriesprojet-view-one.component';
 
 
 export function Ts(http:HttpClient){
@@ -31,7 +35,12 @@ export function Ts(http:HttpClient){
     NaturecritereAjoutComponent,
     NaturecritereEditComponent,
     HomePageComponent,
-    NatureCritereviewOneComponent
+    NatureCritereviewOneComponent,
+    
+    CategoriesprojetListComponent,
+    CategoriesprojetAjoutComponent,
+    CategoriesprojetEditComponent,
+    CategoriesprojetViewOneComponent
   ],
   imports: [
     BrowserModule,

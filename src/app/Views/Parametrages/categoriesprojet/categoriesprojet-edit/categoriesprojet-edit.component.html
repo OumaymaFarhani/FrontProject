@@ -1,0 +1,72 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"modifier_categorie_projet" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+
+ 
+    <br/><br/>
+
+
+
+<div class="register-form">
+	<div class="title">
+		<h2 class="text-blue h4" style="color: #1b00ff;">{{"modifier_categorie_projet" | translate}}</h2>
+
+	</div>
+	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+		<div class=" row">
+		
+			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
+			<div class="col-md-9 col-sm-12">
+				<input type="text" class="form-control  mb-2" name="categoriesProjetLibelle" [(ngModel)]="c.categoriesProjetLibelle"
+					required #categoriesProjetLibelle="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted && categoriesProjetLibelle.errors }" />
+			
+		
+			<div *ngIf="f.submitted && categoriesProjetLibelle.errors" class="invalid-feedback">
+				<div *ngIf="categoriesProjetLibelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
+			</div></div>
+            </div>
+            <div class="row">
+                <label class="col-md-3 col-sm-6 col-form-label">{{"description" | translate}} : </label>
+                <div class="col-md-9 col-sm-12">
+                    <textarea type="text" class="form-control  mb-2" name="categoriesProjetDescription"
+                        [(ngModel)]="c.categoriesProjetDescription" maxlength="1000" #categoriesProjetDescription="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted &&  categoriesProjetDescription.errors }" ></textarea>
+                    <div *ngIf="f.submitted &&  categoriesProjetDescription.errors" class="invalid-feedback">
+                        <div *ngIf="categoriesProjetDescription.errors['maxlength']">
+                            1000 caracteres au maximum
+                          </div></div>
+                </div>
+           
+            </div>
+		
+	
+		<br/>
+		<div class="form-group row">
+			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-7 col-2">
+				{{"btn_annulation" | translate}}
+			</button>
+
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+			
+		</div>
+	</form>
+  </div>
+</div>

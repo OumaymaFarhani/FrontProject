@@ -1,0 +1,52 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"détails_categorie_projet" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+
+ 
+    <br/><br/>
+
+
+
+<div class="register-form">
+	<div class="title">
+		<h2 class="text-blue h4" style="color: #1b00ff;">{{"détails_categorie_projet" | translate}}</h2>
+
+	</div>
+	<form name="form">
+		<div class=" row">
+		
+			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: </label>
+			<div class="col-md-9 col-sm-12">
+				{{c.categoriesProjetLibelle}}
+            </div>
+        </div>
+            <div class="row">
+                <label class="col-md-3 col-sm-6 col-form-label">{{"description" | translate}} : </label>
+              <div class="col-md-9 col-sm-6 ">
+                {{c.categoriesProjetDescription}}
+            </div>
+            </div>
+		
+	
+		<br/>
+		
+	</form>
+  </div>
+</div>

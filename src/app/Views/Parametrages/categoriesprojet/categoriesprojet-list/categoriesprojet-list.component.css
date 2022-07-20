@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 10%;
+
+  }
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+  
+  .mat-column-categoriesProjetLibelle , .mat-column-categoriesProjetDescription {
+    flex: none;
+    width: 25%;
+}
+
+
+
+.mat-column-Operations {
+  flex: none;
+  width: 17%;
+}
+
+.mat-column-categoriesProjetId {
+  flex: none;
+  width: 5%;
+}
