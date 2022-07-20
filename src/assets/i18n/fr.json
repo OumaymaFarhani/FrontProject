@@ -1,0 +1,27 @@
+{
+  "btn_ajout":"Ajouter",
+  "btn_modification":"Modifier",
+  "btn_enregister":"Enregistrer",
+  "btn_annulation":"Annuler",
+  "btn_validation":"Valider",
+  "btn_consultation":"Consulter",
+  "btn_suppression":"Supprimer",
+  "btn_details":"Détails",
+  "btn_oui":"Oui",
+  "btn_non":"Non",
+  "msg_confirmation_suppression":"Etes-vous sûr de vouloir supprimer cet enregistrement?",
+  "ajout_nature_critere":"Ajout Nature Critère",
+  "nature_critere":"Nature Critère",
+  "libelle":"Libelle",
+  "libelleAr":"Libelle Ar",
+  "description":"Description",
+  "description Ar":"Description Ar",
+  "consulter Type Critère":"Consulter Nature Critère",
+  
+  "operations":"Opérations",
+  "modifier_Nature_Critere":"Modifier Nature Critère",
+  "champ_obligatoire":" est un champ obligatoire"
+
+
+
+}

@@ -1,0 +1,169 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<div class="title">
+				<h4 class="text-blue h4" style="color: #1b00ff;">Ajout Nature Critère</h4>
+
+			</div>
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">Accueil
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						Ajout Nature Critère
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+	<!-- <div class="pull-left">
+        <h4 class="text-blue h4" style="color: #1b00ff;">Ajout Type Critère</h4>
+
+    </div> -->
+ 
+    <br/><br/>
+
+<!-- 	
+<form  #f="ngForm">
+	<div class=" row">
+
+		<label class="col-md-2 col-sm-6 col-form-label">Libelle :  <span class="text-danger">*</span></label>
+		<div class="col-md-4 col-sm-12">
+			<input [(ngModel)]="n.natureCritereLibelle" id="natureCritereLibelle" name="natureCritereLibelle"  class=" form-control mb-3" type="text" required  #fp="ngModel"  >
+			<div class="alert alert-danger" *ngIf="fp.invalid && fp.touched">
+				<div *ngIf="fp.hasError('required')"> Libelle est un champ obligatoire</div>
+
+				
+			  </div>
+		</div>
+	
+	
+		<label class="col-md-2 col-sm-6 col-form-label">Libelle Ar : <span class="text-danger">*</span></label>
+		<div class="col-md-4 col-sm-12">
+			<input [(ngModel)]="n.natureCritereLibelleAr" id="natureCritereLibelleAr" name="natureCritereLibelleAr"  class="form-control" type="text" required  #fpAr="ngModel">
+			<div class="alert alert-danger" *ngIf="fpAr.invalid && fpAr.touched">
+				<div *ngIf="fpAr.hasError('required')"> LibelleAR est un champ obligatoire</div>
+
+				
+			  </div>
+		</div>
+	
+	
+	</div>
+    <div class="  row">
+		
+		<label class=" col-md-2 col-sm-6 col-form-label">Description : </label>
+		<div class="col-md-4 col-sm-12">
+			<textarea [(ngModel)]="n.natureCritereDescription" id="natureCritereDescription" name="natureCritereDescription" style=" white-space: break-spaces;word-wrap:bread-word" class="form-control mb-3" minlength ="2" maxlength="100" #fpp="ngModel"></textarea>
+			<div class="alert alert-danger" *ngIf="fpp.invalid && fpp.touched">
+				
+
+				<div *ngIf="fpp.hasError('maxlength')"> Description maxlength is equal to 1000</div>
+				<div *ngIf="fpp.hasError('minlength')"> Description minlength is equal to 2</div>
+			 
+			  </div>
+		</div>
+		
+		<label class=" col-md-2 col-sm-6  col-form-label">DescriptionAr : </label>
+		<div class="col-md-4 col-sm-12">
+			<textarea [(ngModel)]="n.natureCritereDescriptionAr" id="natureCritereDescriptionAr" name="natureCritereDescriptionAr"  style="white-space: break-spaces;word-wrap:bread-word" class="form-control " minlength ="2" maxlength="100" #fppa="ngModel"></textarea>
+		
+			<div class="alert alert-danger" *ngIf="fppa.invalid && fppa.touched">
+				
+
+				<div *ngIf="fppa.hasError('maxlength')"> Description maxlength is equal to 1000</div>
+				<div *ngIf="fppa.hasError('minlength')"> Description minlength is equal to 2</div>
+			 
+			  </div>
+		</div>
+		
+	</div>
+
+	<br/>
+	<br/>
+<div class="form-group row">
+   
+	<button type="button" class="btn  btn-secondary color-white offset-7 col-2 "  [routerLink]="['/home/naturecritereList']">{{"btn_annulation" | translate}}</button>
+	
+    <button type="button" class="btn btn-success color-white    col-2 ml-1" (click)="savenatureCritere()"  [disabled]="f.invalid">{{"btn_ajout" | translate}}</button>
+
+	
+	
+</div>
+</form> -->
+
+
+
+
+<div class="register-form">
+	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
+			<div class="col-md-4 col-sm-12">
+				<input type="text" class="form-control  mb-2" name="natureCritereLibelle" [(ngModel)]="n.natureCritereLibelle"
+					required #natureCritereLibelle="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted && natureCritereLibelle.errors }" />
+			
+		
+			<div *ngIf="f.submitted && natureCritereLibelle.errors" class="invalid-feedback">
+				<div *ngIf="natureCritereLibelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
+			</div></div>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelleAr" | translate}} : <span class="text-danger">*</span></label>
+			<div class="col-md-4 col-sm-12">
+				<input type="text" class="form-control  mb-2" name=" natureCritereLibelleAr"
+					[(ngModel)]="n.natureCritereLibelleAr" required #natureCritereLibelleAr="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted &&  natureCritereLibelleAr.errors }" />
+				<div *ngIf="f.submitted &&  natureCritereLibelleAr.errors" class="invalid-feedback">
+					<div *ngIf=" natureCritereLibelleAr.errors['required']"> {{"libelleAr" | translate}} {{"champ_obligatoire" | translate}} </div>
+				</div>
+			</div>
+		</div>
+		<div class="  row">
+			<label class=" col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :  </label>
+			<div class="col-md-4 col-sm-12">
+			<textarea type="text" class="form-control" name="natureCritereDescription"
+				[(ngModel)]="n.natureCritereDescription"  #natureCritereDescription="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted &&  natureCritereDescription.errors }" maxlength="1000"></textarea>
+			<div *ngIf="f.submitted &&  natureCritereDescription.errors" class="invalid-feedback">
+				
+				  <div *ngIf="natureCritereDescription.errors['maxlength']">
+					1000 caracteres au maximum
+				  </div>
+					</div>
+			</div>
+	
+		
+			<label class=" col-md-2 col-sm-6  col-form-label">{{"description Ar" | translate}} : </label>
+			<div class="col-md-4 col-sm-12">
+			<textarea type="text" class="form-control" name="natureCritereDescriptionAr"
+				[(ngModel)]="n.natureCritereDescriptionAr" #natureCritereDescriptionAr="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted &&  natureCritereDescriptionAr.errors }" maxlength="1000"></textarea>
+			<div *ngIf="f.submitted &&  natureCritereDescriptionAr.errors" class="invalid-feedback">
+				<div *ngIf="natureCritereDescriptionAr.errors['maxlength']">
+					1000 caracteres au maximum
+				  </div>
+				</div>
+		</div>
+	
+	
+		</div>
+	
+	
+		<br/>
+		<div class="form-group row">
+			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-7 col-2">
+				{{"btn_annulation" | translate}}
+			</button>
+
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+			
+		</div>
+	</form>
+  </div>
+</div>
