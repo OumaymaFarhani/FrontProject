@@ -32,7 +32,7 @@
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
-			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
+			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: </label>
 			<div class="col-md-9 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="categoriesProjetLibelle" [(ngModel)]="c.categoriesProjetLibelle"
 					required #categoriesProjetLibelle="ngModel"
