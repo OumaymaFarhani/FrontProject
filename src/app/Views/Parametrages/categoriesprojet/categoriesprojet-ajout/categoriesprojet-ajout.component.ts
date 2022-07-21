@@ -12,7 +12,8 @@ import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categ
 export class CategoriesprojetAjoutComponent implements OnInit {
 
   c= new CategoriesProjet();
-
+  fff :any[];
+  fun:any;
   constructor(private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
 
   form = {
@@ -31,6 +32,10 @@ export class CategoriesprojetAjoutComponent implements OnInit {
     form.reset();
   }
   ngOnInit(): void {
-  }
+    this.categorieProjetService.getAllCategoriesProjet().subscribe((response:any)=>{
+      this.fff=response
+  });
+
+}
 
 }

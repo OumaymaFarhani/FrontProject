@@ -23,6 +23,7 @@ import { CategoriesprojetListComponent } from './Views/Parametrages/categoriespr
 import { CategoriesprojetAjoutComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-ajout/categoriesprojet-ajout.component';
 import { CategoriesprojetEditComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-edit/categoriesprojet-edit.component';
 import { CategoriesprojetViewOneComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-view-one/categoriesprojet-view-one.component';
+import { CommonModule } from '@angular/common';
 
 
 export function Ts(http:HttpClient){
@@ -45,6 +46,7 @@ export function Ts(http:HttpClient){
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,

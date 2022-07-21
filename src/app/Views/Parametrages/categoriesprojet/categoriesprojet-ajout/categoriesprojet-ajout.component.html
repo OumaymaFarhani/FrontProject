@@ -33,7 +33,7 @@
 		<div class=" row">
 		
 			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
-			<div class="col-md-9 col-sm-12">
+			<div class="col-md-8 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="categoriesProjetLibelle" [(ngModel)]="c.categoriesProjetLibelle"
 					required #categoriesProjetLibelle="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted && categoriesProjetLibelle.errors }" />
@@ -43,9 +43,9 @@
 				<div *ngIf="categoriesProjetLibelle.errors['required']"> {{"description" | translate}} {{"champ_obligatoire" | translate}} </div>
 			</div></div>
             </div>
-         <div class="row">
+       <!--   <div class="row">
 			<label class="col-md-3 col-sm-6 col-form-label">{{"description" | translate}} : <span class="text-danger">*</span></label>
-			<div class="col-md-9 col-sm-12">
+			<div class="col-md-8 col-sm-12">
 				<textarea type="text" class="form-control  mb-2" name="categoriesProjetDescription"
 					[(ngModel)]="c.categoriesProjetDescription" maxlength="1000" #categoriesProjetDescription="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted &&  categoriesProjetDescription.errors }" ></textarea>
@@ -55,14 +55,24 @@
                       </div></div>
 			</div>
        
-		</div>
+		</div> -->
 
+		<div class="row">
+			<label class="col-md-3 col-sm-6 col-form-label">{{"description" | translate}} : <span class="text-danger">*</span></label>
+			<div class="col-md-8 col-sm-12">
+				<select class="form-control" formConrolName="fun">
+					<option value="" disabled selected> selectionner</option>
+					<option class="fa" *ngFor="let fun of fff" value="{{fun.categoriesProjetId}}">{{fun.categoriesProjetLibelle}}</option>
+				</select>
+			</div>
+
+		</div>
         
 		
 	
 		<br/>
 		<div class="form-group row">
-			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-7 col-2">
+			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-6 col-2">
 				{{"btn_annulation" | translate}}
 			</button>
 
