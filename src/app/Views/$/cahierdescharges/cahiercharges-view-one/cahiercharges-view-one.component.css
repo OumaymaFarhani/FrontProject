@@ -4,7 +4,6 @@ table {
   
   .mat-form-field {
     font-size: 14px;
-    /* width: 100%; */
     width: 30%;
     float: right;
   }
@@ -21,9 +20,13 @@ table {
     background: #efefef;
   }
   
-  .mat-column-natureCritereDescriptionAr , .mat-column-natureCritereDescription {
+  .mat-column-cahierChargesLibelle {
     flex: none;
-    width: 25%;
+    width: 15%;
+}
+.mat-column-cahierChargesDescription {
+    flex: none;
+    width: 35%;
 }
 
 
@@ -33,7 +36,7 @@ table {
   width: 17%;
 }
 
-.mat-column-natureCritereId {
+.mat-column-cahierChargesId {
   flex: none;
   width: 5%;
 }

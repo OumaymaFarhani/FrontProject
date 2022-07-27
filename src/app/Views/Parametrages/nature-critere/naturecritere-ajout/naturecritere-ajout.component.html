@@ -105,7 +105,7 @@
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
-			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">*</span></label>
 			<div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="natureCritereLibelle" [(ngModel)]="n.natureCritereLibelle"
 					required #natureCritereLibelle="ngModel"
@@ -140,7 +140,7 @@
 			</div>
 	
 		
-			<label class=" col-md-2 col-sm-6  col-form-label">{{"description Ar" | translate}} : </label>
+			<label class=" col-md-2 col-sm-6  col-form-label">{{"description Ar" | translate}}  :</label>
 			<div class="col-md-4 col-sm-12">
 			<textarea type="text" class="form-control" name="natureCritereDescriptionAr"
 				[(ngModel)]="n.natureCritereDescriptionAr" #natureCritereDescriptionAr="ngModel"
@@ -158,10 +158,12 @@
 	
 		<br/>
 		<div class="form-group row">
-			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-7 col-2">
+			<!-- <button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-7 col-2">
+				{{"btn_annulation" | translate}}
+			</button> -->
+			<button type="button" routerLink="/home/naturecritereList" class="btn  btn-secondary color-white offset-6 col-2">
 				{{"btn_annulation" | translate}}
 			</button>
-
 			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
 			
 		</div>

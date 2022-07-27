@@ -32,8 +32,8 @@
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
-			<label class="col-md-3 col-sm-6 col-form-label">{{"libelle" | translate}}: <span class="text-danger">*</span></label>
-			<div class="col-md-8 col-sm-12">
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} : <span class="text-danger">*</span></label>
+			<div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="categoriesProjetLibelle" [(ngModel)]="c.categoriesProjetLibelle"
 					required #categoriesProjetLibelle="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted && categoriesProjetLibelle.errors }" />
@@ -42,11 +42,10 @@
 			<div *ngIf="f.submitted && categoriesProjetLibelle.errors" class="invalid-feedback">
 				<div *ngIf="categoriesProjetLibelle.errors['required']"> {{"description" | translate}} {{"champ_obligatoire" | translate}} </div>
 			</div></div>
-            </div>
-      <div class="row">
-			<label class="col-md-3 col-sm-6 col-form-label">{{"description" | translate}} : <span class="text-danger">*</span></label>
-			<div class="col-md-8 col-sm-12">
-				<textarea type="text" class="form-control  mb-2" name="categoriesProjetDescription"
+            
+			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}}  : <span class="text-danger">*</span></label>
+			<div class="col-md-4 col-sm-12">
+				<textarea type="text" class="form-control  " name="categoriesProjetDescription"
 					[(ngModel)]="c.categoriesProjetDescription" maxlength="1000" #categoriesProjetDescription="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted &&  categoriesProjetDescription.errors }" ></textarea>
 				<div *ngIf="f.submitted &&  categoriesProjetDescription.errors" class="invalid-feedback">
@@ -72,10 +71,13 @@
 	
 		<br/>
 		<div class="form-group row">
-			<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-6 col-2">
+		<!-- 	<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-6 col-2">
+				{{"btn_annulation" | translate}}
+			</button> -->
+			<button type="button" routerLink="/home/categoriesprojetList" class="btn  btn-secondary color-white offset-6 col-2">
 				{{"btn_annulation" | translate}}
 			</button>
-
+	
 			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
 			
 		</div>

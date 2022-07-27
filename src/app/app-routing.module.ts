@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CahierchargesAjoutComponent } from './Views/$/cahierdescharges/cahiercharges-ajout/cahiercharges-ajout.component';
+import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercharges-edit/cahiercharges-edit.component';
+import { CahierchargesListComponent } from './Views/$/cahierdescharges/cahiercharges-list/cahiercharges-list.component';
+import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahiercharges-view-one/cahiercharges-view-one.component';
 import { HomePageComponent } from './Views/home-page/home-page.component';
 import { CategoriesprojetAjoutComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-ajout/categoriesprojet-ajout.component';
 import { CategoriesprojetEditComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-edit/categoriesprojet-edit.component';
@@ -51,7 +55,25 @@ const routes: Routes = [
   {
     path:"CategoriesProjet/:id",
     component: CategoriesprojetViewOneComponent
+  },
+  {
+    path:"CahiersdeChargeList",
+    component: CahierchargesListComponent
+  },
+  {
+    path:"ajouterCahiersdeCharge",
+    component: CahierchargesAjoutComponent
+  },
+  {
+    path:"modifierCahiersdeCharge/:id",
+    component: CahierchargesEditComponent
+  },
+  
+  {
+    path:"CahiersdeCharge/:id",
+    component:  CahierchargesViewOneComponent
   }
+
 ]}];
 
 @NgModule({

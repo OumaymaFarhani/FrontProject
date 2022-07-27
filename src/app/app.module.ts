@@ -24,6 +24,10 @@ import { CategoriesprojetAjoutComponent } from './Views/Parametrages/categoriesp
 import { CategoriesprojetEditComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-edit/categoriesprojet-edit.component';
 import { CategoriesprojetViewOneComponent } from './Views/Parametrages/categoriesprojet/categoriesprojet-view-one/categoriesprojet-view-one.component';
 import { CommonModule } from '@angular/common';
+import { CahierchargesListComponent } from './Views/$/cahierdescharges/cahiercharges-list/cahiercharges-list.component';
+import { CahierchargesAjoutComponent } from './Views/$/cahierdescharges/cahiercharges-ajout/cahiercharges-ajout.component';
+import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercharges-edit/cahiercharges-edit.component';
+import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahiercharges-view-one/cahiercharges-view-one.component';
 
 
 export function Ts(http:HttpClient){
@@ -41,7 +45,11 @@ export function Ts(http:HttpClient){
     CategoriesprojetListComponent,
     CategoriesprojetAjoutComponent,
     CategoriesprojetEditComponent,
-    CategoriesprojetViewOneComponent
+    CategoriesprojetViewOneComponent,
+    CahierchargesListComponent,
+    CahierchargesAjoutComponent,
+    CahierchargesEditComponent,
+    CahierchargesViewOneComponent
   ],
   imports: [
     BrowserModule,

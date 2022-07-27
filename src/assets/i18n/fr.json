@@ -12,10 +12,10 @@
   "msg_confirmation_suppression":"Etes-vous sûr de vouloir supprimer cet enregistrement?",
   "ajout_nature_critere":"Ajout Nature Critère",
   "nature_critere":"Nature Critère",
-  "libelle":"Libelle",
-  "libelleAr":"Libelle Ar",
-  "description":"Description",
-  "description Ar":"Description Ar",
+  "libelle":"Libelle  ",
+  "libelleAr":"Libelle Ar  ",
+  "description":"Description  ",
+  "description Ar":"Description Ar ",
   "consulter Type Critère":"Consulter Nature Critère",
   "détails_Nature_Critère":"Détails Nature Critère",
   "operations":"Opérations",
@@ -28,7 +28,12 @@
   "consulter_categorie_projet":"Consulter Categorie Projet",
   "détails_categorie_projet":"Détails Categorie Projet",
   "modifier_categorie_projet":"Modifier Categorie Projet",
-  "liste_categorie_projet":"Liste Categorie Projet"
+  "liste_categorie_projet":"Liste Categorie Projet",
+  "ajout_cahier_charges":"Paramétrage Cahiers des charges",
+  "categories":"Categories ",
+  "modifier_cahier_charges":"Modifier Cahiers des charges",
+  "détails_cahier_charges":"Détails Cahiers des charges",
+  "type":"Types"
 
 
 

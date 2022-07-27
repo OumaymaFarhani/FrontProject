@@ -30,7 +30,7 @@
       <div class="row justify-content-between pb-3">
   
         <div class="col">
-          <button type="button" [routerLink]="['/home/ajouterCategoriesProjet']"
+          <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
             class="btn btn-success color-white  col-md-1 col-sm-1 ml-4"><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
   
     
@@ -51,31 +51,36 @@
           
             
             
-            <ng-container matColumnDef="categoriesProjetId">
+            <ng-container matColumnDef="cahierChargesId">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
-              <td mat-cell *matCellDef="let element"> {{element.categoriesProjetId}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.cahierChargesId}} </td>
             </ng-container>
-            <ng-container matColumnDef="categoriesProjetLibelle">
+            <ng-container matColumnDef="cahierChargesLibelle">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"libelle" | translate}} </th>
-              <td mat-cell *matCellDef="let element"> {{element.categoriesProjetLibelle}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.cahierChargesLibelle}} </td>
             </ng-container>
   
-            <ng-container  matColumnDef="categoriesProjetDescription">
+            <ng-container  matColumnDef="cahierChargesDescription">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"description" | translate}} </th>
-              <td mat-cell *matCellDef="let element"> {{element.categoriesProjetDescription}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.cahierChargesDescription}} </td>
             </ng-container>
   
+            <ng-container  matColumnDef="categoriesProjet">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"categories" | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.categoriesprojet.categoriesProjetLibelle}} </td>
+              </ng-container>
+    
             
             <ng-container  matColumnDef="Operations">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"operations" | translate}}  </th>
               <td mat-cell *matCellDef="let element"> 
-                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CategoriesProjet',element.categoriesProjetId]"
+                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CahiersdeCharge',element.cahierChargesId]"
                 ><i class="dw dw-eye color-white "></i> </button>
   
               <button type="button" class="btn btn-warning  mr-2"
-                [routerLink]="['/home/modifierCategoriesProjet',element.categoriesProjetId]" ><i
+                [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
                   class="dw dw-edit2 color-white "></i> </button>
-              <button type="button" class="btn btn-danger " (click)="deletee(element,element.categoriesProjetId)"
+              <button type="button" class="btn btn-danger " (click)="deletee(element,element.cahierChargesId)"
                 ><i class="dw dw-delete-3 color-white "></i> </button>
   
                 
