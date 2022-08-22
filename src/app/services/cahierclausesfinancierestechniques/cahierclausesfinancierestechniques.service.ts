@@ -14,6 +14,8 @@ export class CahierclausesfinancierestechniquesService {
   getAllcahierclausesfinancierestechniques(id: number){
     return this.http.get<Cahierclausesfinancierestechniques>(this.baseUrl+"/cahierclausesfinancierestechniques/cahiercharge/"+id);
   }
-
+  deleteClauseFinanc(id: number){
+    return this.http.delete(this.baseUrl+"/cahierclausesfinancierestechniques/supprimerclausefinanciere/" +id);
+  }
 }
 
