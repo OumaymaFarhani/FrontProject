@@ -22,5 +22,8 @@ export class CahierclausesadministrativesService {
   getONEClauseAdmin(id:number){
     return this.http.get<Cahierclausesadministratives>(this.baseUrl+"/cahierclausesadministratives/"+id);
   }
+  deleteClauseAdmin(id: number){
+    return this.http.delete(this.baseUrl+"/cahierclausesadministratives/supprimerclauseAdmin/" +id);
+  }
 
 }
