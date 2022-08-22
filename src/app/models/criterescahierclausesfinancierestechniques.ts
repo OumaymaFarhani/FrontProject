@@ -1,0 +1,12 @@
+export class Criterescahierclausesfinancierestechniques {
+    
+	cahierClausesFinancieresTechniquesId:number;
+	criteresId:number;
+criteresCahierClausesFinancieresTechniquesValeur:number;
+	criteresCahierClausesFinancieresTechniquesElimination:boolean;
+criteresCahierClausesFinancieresTechniquesBareme:number;
+criteresCahierClausesFinancieresTechniquesQuantite=0;
+criteresCahierClausesFinancieresTechniquesBudjet:number;
+criteresCahierClausesFinancieresTechniquesIdCritereAffecter:number;
+
+}

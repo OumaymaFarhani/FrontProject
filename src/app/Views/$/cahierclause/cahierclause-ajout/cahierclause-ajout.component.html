@@ -1,0 +1,114 @@
+<div class="page-header">
+	
+</div>
+<div class="card-box mb-30">
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+        <div class="title">
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
+        </div>
+        </div>
+    <div class=" row mb-1 ">
+
+        <label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :</label>
+        <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesLibelle}}
+          
+            <!-- {{c.cahierChargesId}} -->
+        </div>
+        <label class=" col-md-2 col-sm-6  col-form-label">{{"categories" | translate}} : </label>
+        <div class="col-md-4 col-sm-12">
+            {{c.categoriesprojet.categoriesProjetLibelle}} 
+           
+        </div>
+        
+    </div>
+    <div class="  row">
+        
+      <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesDescription}}
+      </div>
+ </div>
+ <br />
+</div>
+</div>
+
+
+ 
+
+
+    <div class="card-box mb-30">
+        <div class="pd-20 card-box mb-30">
+            
+<div class="register-form">
+
+	<form name="form" #f="ngForm"  (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+            <div class="col-md-4 col-sm-12">
+				<input type="text" class="form-control  mb-2" name="libelle" [(ngModel)]="clause.libelle"
+					required #libelle="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted && libelle.errors }" />
+			
+		
+			<div *ngIf="f.submitted && libelle.errors" class="invalid-feedback">
+				<div *ngIf="libelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
+			</div>
+		</div>
+            <label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :</label>
+            <div class="col-md-4 col-sm-12">
+                {{c.categoriesprojet.categoriesProjetLibelle}} 
+            </div>
+
+       
+		</div>
+        <div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+            <div class="col-md-4 col-sm-12">
+				<textarea type="text" class="form-control  " name="description"
+					[(ngModel)]="clause.description" maxlength="1000" #description="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted &&  description.errors }" ></textarea>
+				<div *ngIf="f.submitted &&  description.errors" class="invalid-feedback">
+					<div *ngIf="description.errors['maxlength']">
+                        1000 caracteres au maximum
+                      </div></div>
+			</div>
+            <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+            <div class="col-md-4 col-sm-12">
+				
+				<select class="form-control" name="typecahiercharges" id="typecahiercharges" 
+				#typecahiercharges="ngModel" [(ngModel)]="t" 
+        [ngClass]="{'invalid-textbox' : f.submitted && typecahiercharges.invalid }" required>
+               >
+			 
+				   <option value=" " > </option>
+					<option class="fa" *ngFor="let typeCahierCharge of listTypeCahierCharge" [ngValue]="typeCahierCharge.typeCahierChargesId">{{typeCahierCharge.typeCahierChargesLibelle}}</option>
+				
+				
+				</select>
+				
+
+
+				<div *ngIf="typecahiercharges.invalid && f.submitted">
+					<span style="color: red;">{{"categories" | translate}} {{"champ_obligatoire" | translate}} </span>
+				  </div> 
+			<br/>
+			<!-- {{c.categoriesProjetId | json}} -->
+			</div>
+       
+		</div>
+	<br/>
+		<div class="form-group row">
+		
+			<button type="button" class="btn  btn-secondary  color-white offset-7 col-2"  [routerLink]="['/home/CahiersdeCharge/',c.cahierChargesId]">{{"btn_annulation" | translate}}</button>
+	
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+			
+		</div>
+	</form>
+  </div>
+</div>
+</div>

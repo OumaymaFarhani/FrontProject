@@ -2,22 +2,24 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cahiercharges } from 'src/app/models/cahiercharges';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { CahierchargesService } from 'src/app/services/cahiercharges/cahiercharges.service';
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 import { CommonModule } from '@angular/common';
+import { Cahierclausemodel } from 'src/app/models/cahierclausemodel';
 @Component({
   selector: 'app-cahiercharges-ajout',
   templateUrl: './cahiercharges-ajout.component.html',
   styleUrls: ['./cahiercharges-ajout.component.css']
 })
 export class CahierchargesAjoutComponent implements OnInit {
-  fff :CategoriesProjet[];
-  fun:CategoriesProjet;
+  fff :Categoriesprojet[];
+  fun:Categoriesprojet;
   cc:any[];
+  categorie=new Categoriesprojet();
   i:any;
   c= new Cahiercharges();
-
+  cahierclause=new Cahierclausemodel();
 	
   selectedTeam = '1';
   onSelected(value:string): void {
@@ -37,16 +39,20 @@ export class CahierchargesAjoutComponent implements OnInit {
 
 
 
-onSubmit(): void {
-  this.cahierchargesService.createcahiercharges(this.c,this.selectedTeam).subscribe(
-    ()=>  (this.router.navigate(['/home/CahiersdeChargeList']))
-  )
-}
   ngOnInit(): void {
     this.categorieProjetService.getAllCategoriesProjet().subscribe((response:any)=>{
       console.log(response);
       this.fff=response
   });
+ 
+  }
+
+
+  onSubmit(): void {
+    this.c.categoriesprojet=this.categorie
+    this.cahierchargesService.createcahiercharges1(this.c).subscribe(
+      ()=>  (this.router.navigate(['/home/CahiersdeChargeList']))
+    )
   }
 
   onReset(form: NgForm): void {

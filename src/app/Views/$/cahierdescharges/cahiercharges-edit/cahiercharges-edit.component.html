@@ -25,14 +25,14 @@
 
 
 <div class="register-form">
-	<div class="title">
+	<!-- <div class="title">
 		<h2 class="text-blue h4" style="color: #1b00ff;">{{"modifier_cahier_charges" | translate}}</h2>
 
-	</div>
+	</div> -->
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
-			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">*</span></label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
 			<div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="cahierChargesLibelle" [(ngModel)]="c.cahierChargesLibelle"
 					required #cahierChargesLibelle="ngModel"
@@ -42,17 +42,21 @@
 			<div *ngIf="f.submitted && cahierChargesLibelle.errors" class="invalid-feedback">
 				<div *ngIf="cahierChargesLibelle.errors['required']"> {{"description" | translate}} {{"champ_obligatoire" | translate}} </div>
 			</div></div>
-            
-			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :  </label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :<span class="text-danger">&nbsp;*</span></label>
 			<div class="col-md-4 col-sm-12">
-				<textarea type="text" class="form-control  " name="cahierChargesDescription"
-					[(ngModel)]="c.cahierChargesDescription" maxlength="1000" #cahierChargesDescription="ngModel"
-					[ngClass]="{ 'is-invalid': f.submitted &&  cahierChargesDescription.errors }" ></textarea>
-				<div *ngIf="f.submitted &&  cahierChargesDescription.errors" class="invalid-feedback">
-					<div *ngIf="cahierChargesDescription.errors['maxlength']">
-                        1000 caracteres au maximum
-                      </div></div>
+				
+				<select class="form-control" name="categoriesprojet" id="categoriesprojet" #teams (change)="onSelected(teams.value)">
+				  
+					<option class="fa" *ngFor="let fun of fff" 
+					 [selected]="c.categoriesprojet.categoriesProjetId === fun.categoriesProjetId"
+					  value="{{fun.categoriesProjetId}}">{{fun.categoriesProjetLibelle}}</option>
+				</select>
+
+			<br/>
+			{{c.categoriesprojet | json}}
 			</div>
+
+		
        
 		</div>
 
@@ -73,20 +77,16 @@
 		</div> -->
 		
 		<div class="row">
-			<label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :<span class="text-danger">*</span></label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :  </label>
 			<div class="col-md-4 col-sm-12">
-				
-				<select class="form-control" name="categoriesProjetId" id="categoriesProjetId" #teams (change)="onSelected(teams.value)">
-				  
-					<option class="fa" *ngFor="let fun of fff" 
-					 [selected]="c.categoriesprojet.categoriesProjetId === fun.categoriesProjetId"
-					  value="{{fun.categoriesProjetId}}">{{fun.categoriesProjetLibelle}}</option>
-				</select>
-
-			<br/>
-			{{c.categoriesProjetId | json}}
+				<textarea type="text" class="form-control  " name="cahierChargesDescription"
+					[(ngModel)]="c.cahierChargesDescription" maxlength="1000" #cahierChargesDescription="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted &&  cahierChargesDescription.errors }" ></textarea>
+				<div *ngIf="f.submitted &&  cahierChargesDescription.errors" class="invalid-feedback">
+					<div *ngIf="cahierChargesDescription.errors['maxlength']">
+                        1000 caracteres au maximum
+                      </div></div>
 			</div>
-
 		</div>
 		
 	

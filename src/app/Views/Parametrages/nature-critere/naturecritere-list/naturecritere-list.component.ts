@@ -107,12 +107,10 @@ this.ngOnInit();
        
               });
          ;
-          swal("Supprimée avec succes", {
+         /* swal("Supprimée avec succes", {
             icon: "success",
-          });
-        } else {
-          swal("Annulée!");
-        }
+          });*/
+        } 
       });
  
   } 

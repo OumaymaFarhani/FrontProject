@@ -1,4 +1,4 @@
-export class CategoriesProjet {
+export class Categoriesprojet {
     categoriesProjetId:number;
 	
 	categoriesProjetLibelle:string;

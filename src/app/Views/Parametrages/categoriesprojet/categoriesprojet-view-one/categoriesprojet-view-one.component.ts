@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categ
 })
 export class CategoriesprojetViewOneComponent implements OnInit {
 
-  c= new CategoriesProjet();
+  c= new Categoriesprojet();
 
   constructor(private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
 

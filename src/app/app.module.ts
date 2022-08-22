@@ -28,12 +28,35 @@ import { CahierchargesListComponent } from './Views/$/cahierdescharges/cahiercha
 import { CahierchargesAjoutComponent } from './Views/$/cahierdescharges/cahiercharges-ajout/cahiercharges-ajout.component';
 import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercharges-edit/cahiercharges-edit.component';
 import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahiercharges-view-one/cahiercharges-view-one.component';
+import { CahierclauseAjoutComponent } from './Views/$/cahierclause/cahierclause-ajout/cahierclause-ajout.component';
+import { IntervallestypeListComponent } from './Views/$/intervallestype/intervallestype-list/intervallestype-list.component';
+import { IntervallesListComponent } from './Views/$/intervalles/intervalles-list/intervalles-list.component';
+import { IntervallesAjoutComponent } from './Views/$/intervalles/intervalles-ajout/intervalles-ajout.component';
+import { IntervallestypeAjoutComponent } from './Views/$/intervallestype/intervallestype-ajout/intervallestype-ajout.component';
+import { IntervallestypeEditComponent } from './Views/$/intervallestype/intervallestype-edit/intervallestype-edit.component';
+import { IntervallestypeViewOneComponent } from './Views/$/intervallestype/intervallestype-view-one/intervallestype-view-one.component';
+import { IntervallesEditComponent } from './Views/$/intervalles/intervalles-edit/intervalles-edit.component';
+import { IntervallesViewOneComponent } from './Views/$/intervalles/intervalles-view-one/intervalles-view-one.component';
+import { TypecahierchargesListComponent } from './Views/$/typecahiercharges/typecahiercharges-list/typecahiercharges-list.component';
+import { TypecahierchargesEditComponent } from './Views/$/typecahiercharges/typecahiercharges-edit/typecahiercharges-edit.component';
+import { TypecahierchargesAjoutComponent } from './Views/$/typecahiercharges/typecahiercharges-ajout/typecahiercharges-ajout.component';
+import { TypecahierchargesViewOneComponent } from './Views/$/typecahiercharges/typecahiercharges-view-one/typecahiercharges-view-one.component';
+import { CahierchargestypeListComponent } from './Views/$/cahierchargestype/cahierchargestype-list/cahierchargestype-list.component';
+import { CahierchargestypeEditComponent } from './Views/$/cahierchargestype/cahierchargestype-edit/cahierchargestype-edit.component';
+import { CahierchargestypeAjoutComponent } from './Views/$/cahierchargestype/cahierchargestype-ajout/cahierchargestype-ajout.component';
+import { CahierchargestypeViewOneComponent } from './Views/$/cahierchargestype/cahierchargestype-view-one/cahierchargestype-view-one.component';
+import { CahierclauseViewOneComponent } from './Views/$/cahierclause/cahierclause-view-one/cahierclause-view-one.component';
+import { CahierclauseEditComponent } from './Views/$/cahierclause/cahierclause-edit/cahierclause-edit.component';
+import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
+import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
 
 
 export function Ts(http:HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 @NgModule({
+
+
   declarations: [
     AppComponent,
     NaturecritereListComponent,
@@ -49,7 +72,29 @@ export function Ts(http:HttpClient){
     CahierchargesListComponent,
     CahierchargesAjoutComponent,
     CahierchargesEditComponent,
-    CahierchargesViewOneComponent
+    CahierchargesViewOneComponent,
+    CahierclauseAjoutComponent,
+    IntervallestypeListComponent,
+    IntervallesListComponent,
+    IntervallesAjoutComponent,
+    IntervallestypeAjoutComponent,
+    IntervallestypeEditComponent,
+    IntervallestypeViewOneComponent,
+    IntervallesViewOneComponent,
+   
+    IntervallesEditComponent,
+        TypecahierchargesListComponent,
+        TypecahierchargesEditComponent,
+        TypecahierchargesAjoutComponent,
+        TypecahierchargesViewOneComponent,
+        CahierchargestypeListComponent,
+        CahierchargestypeEditComponent,
+        CahierchargestypeAjoutComponent,
+        CahierchargestypeViewOneComponent,
+        CahierclauseViewOneComponent,
+        CahierclauseEditComponent,
+        CriteresListComponent,
+        CriteresAjoutComponent
   ],
   imports: [
     BrowserModule,
