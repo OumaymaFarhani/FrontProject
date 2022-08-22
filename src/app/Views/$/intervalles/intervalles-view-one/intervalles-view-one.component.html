@@ -1,0 +1,64 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"consulterintervalles" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+    <br/><br/>
+<div class="register-form">
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesInferieur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+				{{intervalles1.intervallesInferieur}}
+			
+		    </div>
+            
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesSuperieur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                {{intervalles1.intervallesSuperieur}}
+            </div>
+        </div>
+		<div class="row">
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesBareme" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                {{intervalles1.intervallesBareme}}
+			</div>	<label class="col-md-2 col-sm-6 col-form-label">{{"CritereValeur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+					{{intervalles1.criterescahierclausesfinancierestechniques.criteresCahierClausesFinancieresTechniquesValeur}}
+			</div>	
+				
+		</div>
+		<div class="row">
+			<label class="col-md-2 col-sm-6 col-form-label">{{"OperateursSuperieur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                {{intervalles1.operateursByOperateursSuperieurId.operateursId}}
+		  {{intervalles1.operateursByOperateursSuperieurId.operateursSymbole}}
+			</div>	
+			<label class="col-md-2 col-sm-6 col-form-label">{{"Operateurs" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+				{{intervalles1.operateursByOpeOperateursId.operateursId}}
+			
+				{{intervalles1.operateursByOpeOperateursId.operateursSymbole}}
+			</div>	
+		</div>
+		<br/>
+		<div class="form-group row">
+		</div>
+	
+  </div>
+</div>

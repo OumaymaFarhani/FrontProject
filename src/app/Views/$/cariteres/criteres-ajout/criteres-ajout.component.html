@@ -1,0 +1,101 @@
+<div class="card-box mb-30">
+    <div class="pd-20 card-box mb-30">
+ 
+<div class="register-form">
+
+	<form name="form" #f="ngForm"  (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+            <div class="col-md-4 col-sm-12">
+				<input type="text" class="form-control  mb-2" name="criteresLibelle" [(ngModel)]="critere.criteresLibelle"
+					required #criteresLibelle="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted && criteresLibelle.errors }" />
+			
+		
+			<div *ngIf="f.submitted && criteresLibelle.errors" class="invalid-feedback">
+				<div *ngIf="criteresLibelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
+			</div>
+		</div>
+        <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :</label>
+            <div class="col-md-4 col-sm-12">
+				
+		</div>
+        </div>
+
+        <div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"Abreviation" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+            <div class="col-md-4 col-sm-12">
+				<input type="text" class="form-control  mb-2" name="criteresAbreviation" [(ngModel)]="critere.criteresAbreviation"
+					required #criteresAbreviation="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted && criteresAbreviation.errors }" />
+			
+		
+			<div *ngIf="f.submitted && criteresAbreviation.errors" class="invalid-feedback">
+				<div *ngIf="criteresAbreviation.errors['required']"> {{"Abreviation" | translate}} {{"champ_obligatoire" | translate}} </div>
+			</div>
+		</div>
+        <label class="col-md-2 col-sm-6 col-form-label">{{"nature" | translate}} :</label>
+        <div class="col-md-4 col-sm-12">
+            
+    </div>
+        </div>
+        <div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"Eliminatoire" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+            <div class="col-md-4 col-sm-12">
+                   
+                      <input type="radio" name="criteresElimination" value="oui" [(ngModel)]="critere.criteresElimination">
+                      Oui
+                   
+                    
+                      <input type="radio" name="criteresElimination" value="nom" [(ngModel)]="critere.criteresElimination">
+                      Non
+                 
+                  
+				
+		</div>
+        <label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :</label>
+        <div class="col-md-4 col-sm-12">
+            
+    </div>
+        </div>
+        <div class="row">
+            <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+            <div class="col-md-4 col-sm-12">
+				<textarea type="text" class="form-control  " name="criteresDescription"
+					[(ngModel)]="critere.criteresDescription" maxlength="1000" #criteresDescription="ngModel"
+					[ngClass]="{ 'is-invalid': f.submitted &&  criteresDescription.errors }" ></textarea>
+				<div *ngIf="f.submitted &&  criteresDescription.errors" class="invalid-feedback">
+					<div *ngIf="criteresDescription.errors['maxlength']">
+                        1000 caracteres au maximum
+                      </div></div>
+			</div>
+            <label class="col-md-2 col-sm-6 col-form-label">{{"valeur" | translate}} :</label>
+            <div class="col-md-4 col-sm-12">
+                   
+                <input type="radio" name=" " value="male"   />
+                Oui
+             
+              
+                <input type="radio" name=" " value="female"  checked />
+                Non
+           
+            
+          
+  </div>
+        </div>
+       
+	<br/>
+		<div class="form-group row">
+		
+			
+			<button type="submit" class="btn btn-success color-white  offset-7  col-2 ">{{"btn_ajout" | translate}}</button>
+			<button type="button" class="btn  btn-secondary  color-white  col-2 ml-1 "  [routerLink]="['/home/CahiersdeCharge/',c.cahierChargesId]">{{"btn_annulation" | translate}}</button>
+	
+		</div>
+	</form>
+  </div>
+    </div>
+</div>

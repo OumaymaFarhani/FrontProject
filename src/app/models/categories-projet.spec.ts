@@ -1,7 +1,7 @@
-import { CategoriesProjet } from './categories-projet';
+import { Categoriesprojet } from './categoriesprojet';
 
 describe('CategoriesProjet', () => {
   it('should create an instance', () => {
-    expect(new CategoriesProjet()).toBeTruthy();
+    expect(new Categoriesprojet()).toBeTruthy();
   });
 });

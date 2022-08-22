@@ -3,7 +3,7 @@
       <div class="col-md-6 col-sm-12">
         <div class="title">
          
-          <h4 class="text-blue h4" style="color: #1b00ff;">{{"liste_categorie_projet" | translate}}</h4>
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"liste_cahier_charges" | translate}}</h4>
   
         </div>
         <nav aria-label="breadcrumb" role="navigation">
@@ -13,7 +13,7 @@
               </a>
             </li>
             <li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-              {{"liste_categorie_projet" | translate}}
+              {{"liste_cahier_charges" | translate}}
             </li>
           </ol>
         </nav>
@@ -43,7 +43,7 @@
           
            <div>
             <mat-form-field appearance="fill">
-              <input matInput placeholder="recherche"  autocomplete="off" (keyup)="filterData($event)">
+              <input matInput   autocomplete="off" (keyup)="filterData($event)">
   
             </mat-form-field>
           </div> 
@@ -68,13 +68,13 @@
             <ng-container  matColumnDef="categoriesProjet">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"categories" | translate}} </th>
                 <td mat-cell *matCellDef="let element"> {{element.categoriesprojet.categoriesProjetLibelle}} </td>
-              </ng-container>
+                      </ng-container>
     
             
             <ng-container  matColumnDef="Operations">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"operations" | translate}}  </th>
               <td mat-cell *matCellDef="let element"> 
-                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CahiersdeCharge',element.cahierChargesId]"
+                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CahiersdeChargeList',element.cahierChargesId]"
                 ><i class="dw dw-eye color-white "></i> </button>
   
               <button type="button" class="btn btn-warning  mr-2"

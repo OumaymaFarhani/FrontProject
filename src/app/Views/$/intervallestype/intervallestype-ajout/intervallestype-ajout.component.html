@@ -1,0 +1,94 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"ajoutintervallestype" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+    <br/><br/>
+<div class="register-form">
+	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesInferieur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+				<input type="number" class="form-control  mb-2" name="intervallesInferieur" [(ngModel)]="intervallestype1.intervallesInferieur"
+					 />
+			
+		    </div>
+            
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesSuperieur" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                <input type="number" class="form-control  mb-2" name="intervallesSuperieur" [(ngModel)]="intervallestype1.intervallesSuperieur"
+					/>
+            </div>
+        </div>
+		<div class="row">
+			<label class="col-md-2 col-sm-6 col-form-label">{{"intervallesBareme" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                <input type="number" class="form-control  mb-2" name="intervallesBareme" [(ngModel)]="intervallestype1.intervallesBareme"
+					 />
+			</div>	
+			<label class="col-md-2 col-sm-6 col-form-label">{{"CritereValeur" | translate}} :</label>
+			 <div class="col-md-4 col-sm-12">
+                <select class="form-control" name="criterescahierclausesfinancierestechniquestype" id="criterescahierclausesfinancierestechniquestype" 
+ #criterescahierclausesfinancierestechniquestype="ngModel" [(ngModel)]="critere" 
+          >
+			 
+				   <option value=" "disabled > </option>
+					<option class="fa" *ngFor="let fun1 of fff1" [ngValue]="fun1">{{fun1.criteresCahierClausesFinancieresTechniquesValeur}}</option>
+				
+				
+				</select>
+			</div>	 		
+		</div>
+		<div class="row">
+			<label class="col-md-2 col-sm-6 col-form-label">{{"OperateursSuperieur" | translate}} :</label>
+			 <div class="col-md-4 col-sm-12">
+                <select class="form-control" name="operateurstypeByOperateursSuperieurId" id="operateurstypeByOperateursSuperieurId" 
+				#operateurstypeByOperateursSuperieurId="ngModel" [(ngModel)]="operateurs2.operateursId" 
+          >
+			 
+				   <option value=" "disabled > </option>
+					<option class="fa" *ngFor="let fun of fff" value="{{fun.operateursId}}">{{fun.operateursId}}{{fun.operateursSymbole}}</option>
+				
+				
+				</select>
+			</div>	 
+			<label class="col-md-2 col-sm-6 col-form-label">{{"Operateurs" | translate}} :</label>
+			<div class="col-md-4 col-sm-12">
+                <select class="form-control" name="operateurstypeByOpeOperateursId" id="operateurstypeByOpeOperateursId" 
+				#operateurstypeByOpeOperateursId="ngModel" [(ngModel)]="operateurs1.operateursId" 
+          >
+			 
+				   <option value=" " disabled> </option>
+					<option class="fa" *ngFor="let fun of fff" value="{{fun.operateursId}}">{{fun.operateursId}}{{fun.operateursSymbole}}</option>
+				
+				
+				</select>
+			</div>			
+		</div>
+
+
+
+		<br/>
+		<div class="form-group row">
+			<button type="button" class="btn  btn-secondary  color-white offset-7 col-2"  [routerLink]="['/home/intervallesTypeList']">{{"btn_annulation" | translate}}</button>
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+		</div>
+	</form>
+  </div>
+</div>

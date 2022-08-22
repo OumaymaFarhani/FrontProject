@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+    float: right;
+  }
+  
+  td, th {
+    width: 10%;
+
+  }
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+  
+  .mat-column-cahierChargesLibelle {
+    flex: none;
+    width: 15%;
+}
+.mat-column-cahierChargesDescription {
+    flex: none;
+    width: 35%;
+}
+
+
+
+.mat-column-Operations {
+  flex: none;
+  width: 14%;
+}
+
+.mat-column-cahierChargesId {
+  flex: none;
+  width: 3%;
+}

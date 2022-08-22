@@ -1,0 +1,72 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"consultertype" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
+<div class="container">
+
+ 
+    <br/><br/>
+
+
+
+<div class="register-form">
+		<div class=" row">
+		
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} : </label>
+			<div class="col-md-4 col-sm-12">
+                {{type.typeCahierChargesLibelle}}
+			</div>
+            
+
+            
+            <label class="col-md-2 col-sm-6 col-form-label">{{"ordre" | translate}} : </label>
+			<div class="col-md-4 col-sm-12">
+                {{type.ordre}}
+			</div>	
+		</div>
+        <div class="row">
+            <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}}  : </label>
+			<div class="col-md-4 col-sm-12">
+                {{type.typeCahierDesChargesDescription}}
+				
+			</div>
+			 
+          
+			
+			<label class="col-md-2 col-sm-6 col-form-label">{{"code" | translate}} : </label>
+			<div class="col-md-4 col-sm-12">
+                {{type.typeCahierDesChargesCode}}
+				</div>
+        </div>
+		<div class="row">
+			
+		</div>
+        <br/>
+		<div class="form-group row">
+		<!-- 	<button type="button" (click)="onReset(f)" class="btn  btn-secondary color-white offset-6 col-2">
+				{{"btn_annulation" | translate}}
+			</button> -->
+			<button type="button" routerLink="/home/typecahierchargeList" class="btn  btn-secondary color-white offset-4 col-2">
+				{{"btn_annulation" | translate}}
+			</button>
+	
+			
+		</div>
+	
+  </div>
+</div>

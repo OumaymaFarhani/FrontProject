@@ -3,7 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Cahiercharges } from 'src/app/models/cahiercharges';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
+import { Criterescahierclausesfinancierestechniquestype } from 'src/app/models/criterescahierclausesfinancierestechniquestype';
 import { CahierchargesService } from 'src/app/services/cahiercharges/cahiercharges.service';
 import swal from 'sweetalert';
 @Component({
@@ -19,7 +20,7 @@ export class CahierchargesListComponent implements OnInit {
   tableSizes : any=['ALL',5 ,10 ,15 ,20];
   L: any = [];
   d:any[];
-  categoriesProjet:CategoriesProjet;
+  categoriesProjet:Categoriesprojet;
   cahiercharges: Cahiercharges[];
   displayedColumns= [ 'cahierChargesId','cahierChargesLibelle','cahierChargesDescription','categoriesProjet','Operations']
   dataSource !:MatTableDataSource<any>;
@@ -74,12 +75,8 @@ this.ngOnInit();
        
               });
          ;
-          swal("Supprimée avec succes", {
-            icon: "success",
-          });
-        } else {
-          swal("Annulée!");
-        }
+          
+        } 
       });
  
   } 

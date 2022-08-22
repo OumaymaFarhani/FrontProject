@@ -20,11 +20,11 @@ table {
     background: #efefef;
   }
   
-  .mat-column-cahierChargesLibelle {
+  .mat-column-cahierClausesAdministrativesLibelle {
     flex: none;
     width: 15%;
 }
-.mat-column-cahierChargesDescription {
+.mat-column-cahierClausesAdministrativeDescription {
     flex: none;
     width: 35%;
 }
@@ -36,7 +36,7 @@ table {
   width: 17%;
 }
 
-.mat-column-cahierChargesId {
+.mat-column-cahierClausesAdministrativesId {
   flex: none;
   width: 5%;
 }

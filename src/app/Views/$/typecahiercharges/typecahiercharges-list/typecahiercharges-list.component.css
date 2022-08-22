@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+    float: right;
+  }
+  
+  td, th {
+    width: 10%;
+
+  }
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+  
+   .mat-column-typeCahierDesChargesDescription {
+    flex: none;
+    width: 35%;
+}
+
+.mat-column-typeCahierChargesLibelle ,.mat-column-typeCahierDesChargesCode ,.mat-column-ordre{
+    flex: none;
+    width: 10%;
+}
+
+.mat-column-Operations {
+  flex: none;
+  width: 17%;
+}
+
+.mat-column-typeCahierChargesId {
+  flex: none;
+  width: 5%;
+}

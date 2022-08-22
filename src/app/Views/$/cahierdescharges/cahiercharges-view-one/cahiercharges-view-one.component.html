@@ -1,7 +1,7 @@
 <div class="page-header">
 	<div class="row">
-		<div class="col-md-6 col-sm-12">
-            <div class="title">
+		<div class="col-md-3 col-sm-12">
+          <!--   <div class="title">
        
                 <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
         
@@ -16,7 +16,24 @@
 						{{"détails_cahier_charges" | translate}}
 					</li>
 				</ol>
-			</nav>
+			</nav> -->
+      <div class="row">
+        <div class="col">
+            <button type="button" [routerLink]="['/home/CahiersdeChargeList/ajouterClauseAdministrative']"
+            class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
+    
+        </div>
+        <div class="col">
+            <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
+            class=" btn btn-info color-white  "><i class="icon-copy fa fa-cog" aria-hidden="true"></i> </button>
+    
+        </div>
+        <div class="col">
+            <button type="button"  [routerLink]="['/home/ajouterClause',c.cahierChargesId]"
+            class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
+    
+        </div>
+    </div> 
 		</div>
 		
 	</div>
@@ -26,11 +43,28 @@
 <div class="card-box mb-30">
     <div class="pd-20 card-box mb-30">
         <div class="clearfix">
-            <div class="pull-left">
-                <h2 class="text-blue" style="color: #1b00ff; ">{{"détails_cahier_charges" | translate}}</h2>
+         <!--  <div class="row">
+            <div class="col">
+                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
+                class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
         
             </div>
-         
+            <div class="col">
+                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
+                class=" btn btn-info color-white  "><i class="icon-copy fa fa-cog" aria-hidden="true"></i> </button>
+        
+            </div>
+            <div class="col">
+                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
+                class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
+        
+            </div>
+        </div>  -->
+        <div class="title">
+       
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
+  
+        </div>
         </div>
     
 
@@ -47,23 +81,22 @@
 
         <label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :</label>
         <div class="col-md-4 col-sm-12">
-            {{c.cahierChargesLibelle}}
-
+          {{c.cahierChargesLibelle}}
+            <!-- {{c.cahierChargesId}} -->
         </div>
-        <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+        <label class=" col-md-2 col-sm-6  col-form-label">{{"categories" | translate}} : </label>
         <div class="col-md-4 col-sm-12">
-            {{c.cahierChargesDescription}}
+            {{c.categoriesprojet.categoriesProjetLibelle}} 
+            
         </div>
+        
     </div>
     <div class="  row">
         
-
-
-        <label class=" col-md-2 col-sm-6  col-form-label">{{"categories" | translate}} : </label>
-        <div class="col-md-4 col-sm-12">
-            {{c.categoriesprojet.categoriesProjetLibelle}}
-        </div>
-
+      <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesDescription}}
+      </div>
 
     </div>
 
@@ -75,67 +108,73 @@
 
 </div>
 <div class="card-box mb-30">
-    
+ 
     <div class="pd-20 card-box mb-30">
+     
+      <div class="title">
        
+        <h4 class="text-blue h4" style="color: #1b00ff;">{{"liste_cahier_clause" | translate}}</h4>
+    
+      </div>
         <div class="row justify-content-between">
     
-            <div class="row">
-                <div class="col">
-                    <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                    class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
             
-                </div>
-                <div class="col">
-                    <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                    class=" btn btn-info color-white  "><i class="icon-copy fa fa-cog" aria-hidden="true"></i> </button>
             
-                </div>
-                <div class="col">
-                    <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                    class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
-            
-                </div>
-            </div>  
               <br/><br/><br/>
-              <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+              
+              <table mat-table matSort [dataSource]="dataSource" [dataSource]="dataSource1" class="mat-elevation-z8">
+              
+               
+                
+                <ng-container matColumnDef="cahierClausesAdministrativesId">
+                  <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
+                  
+                   <td mat-cell *matCellDef="let element"> {{element.cahierClausesAdministrativesId}}{{element.cahierClausesFinancieresTechniquesId}} </td> 
+                   
+                </ng-container>
               
                 
-                
-                <ng-container matColumnDef="cahierChargesId">
-                  <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.cahierChargesId}} </td>
-                </ng-container>
-                <ng-container matColumnDef="cahierChargesLibelle">
+                <ng-container matColumnDef="cahierClausesAdministrativesLibelle">
                   <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"libelle" | translate}} </th>
-                  <td mat-cell *matCellDef="let element"> {{element.cahierChargesLibelle}} </td>
-                </ng-container>
+                 
+                  <!-- <td mat-cell *matCellDef="let element"> {{element.cahierDesClauseFinancierTechnqueLibelle}} </td>  -->
+                  <td mat-cell *matCellDef="let element"> {{element.cahierClausesAdministrativesLibelle}} {{element.cahierDesClauseFinancierTechnqueLibelle}}</td> 
+                  
+                  </ng-container>
       
-                <ng-container  matColumnDef="cahierChargesDescription">
+                <ng-container  matColumnDef="cahierClausesAdministrativeDescription">
                   <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"description" | translate}} </th>
-                  <td mat-cell *matCellDef="let element"> {{element.cahierChargesDescription}} </td>
-                </ng-container>
+                    <!-- <td mat-cell *matCellDef="let element"> {{element.cahierClausesFinancieresTechniquesDescription}} </td>  -->
+                    <td mat-cell *matCellDef="let element"> {{element.cahierClausesAdministrativeDescription}}  {{element.cahierClausesFinancieresTechniquesDescription}}</td> 
+                  
+                  </ng-container>
 
-                <ng-container  matColumnDef="typeProjet">
+                <ng-container  matColumnDef="typecahiercharges">
                     <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"type" | translate}} </th>
-                    <td mat-cell *matCellDef="let element"> {{element.typeProjet}} </td>
-                  </ng-container>
+                     <td mat-cell *matCellDef="let element"> {{element.typecahiercharges.typeCahierChargesLibelle}} </td> 
+                     <!-- <td mat-cell *matCellDef="let element"> {{element.typecahiercharges}} </td>  -->
+                       </ng-container>
       
-                <ng-container  matColumnDef="categoriesProjet">
+                <ng-container  matColumnDef="categoriesprojet">
                     <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"categories" | translate}} </th>
-                    <td mat-cell *matCellDef="let element"> {{element.categoriesprojet.categoriesProjetLibelle}} </td>
-                  </ng-container>
+                     <td mat-cell *matCellDef="let element"> {{element.categoriesprojet.categoriesProjetLibelle}} </td> 
+                     
+                    </ng-container>
         
                 
                 <ng-container  matColumnDef="Operations">
                   <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"operations" | translate}}  </th>
                   <td mat-cell *matCellDef="let element"> 
-                    <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CahiersdeCharge',element.cahierChargesId]"
+                    <button type="button" class="btn btn-info   mr-2"  (click)="checkClause(element)"
                     ><i class="dw dw-eye color-white "></i> </button>
       
                   <button type="button" class="btn btn-warning  mr-2"
                     [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
                       class="dw dw-edit2 color-white "></i> </button>
+
+                      <button type="button" class="btn btn-danger "
+                      [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                        class="dw dw-delete-3 color-white "></i> </button>
                 
                     
                     

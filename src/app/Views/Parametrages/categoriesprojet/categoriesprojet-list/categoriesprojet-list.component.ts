@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 import swal from 'sweetalert';
 @Component({
@@ -18,7 +18,7 @@ export class CategoriesprojetListComponent implements OnInit {
   tableSizes : any=['ALL',5 ,10 ,15 ,20];
   L: any = [];
   d:any[];
-  categorie: CategoriesProjet[];
+  categorie: Categoriesprojet[];
   displayedColumns= [  'categoriesProjetId','categoriesProjetLibelle','categoriesProjetDescription','Operations']
   dataSource !:MatTableDataSource<any>;
   @ViewChild('paginator') paginator! :MatPaginator;
@@ -41,7 +41,7 @@ export class CategoriesprojetListComponent implements OnInit {
 
   }
    // Delete 
-   deletee(cc:CategoriesProjet,id:number) {
+   deletee(cc:Categoriesprojet,id:number) {
     
     swal({
       title: "Etes-vous sûr de vouloir supprimer cet enregistrement?",
@@ -71,12 +71,10 @@ this.ngOnInit();
        
               });
          ;
-          swal("Supprimée avec succes", {
+        /* swal("Supprimée avec succes", {
             icon: "success",
-          });
-        } else {
-          swal("Annulée!");
-        }
+          });*/
+        } 
       });
  
   } 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cahiercharges } from 'src/app/models/cahiercharges';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { CahierchargesService } from 'src/app/services/cahiercharges/cahiercharges.service';
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 
@@ -13,7 +13,7 @@ import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categ
 })
 export class CahierchargesEditComponent implements OnInit {
   c= new Cahiercharges();
-  fff :CategoriesProjet[];
+  fff :Categoriesprojet[];
   
   selectedTeam = '1';
   onSelected(value:string): void {

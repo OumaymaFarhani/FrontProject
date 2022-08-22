@@ -98,14 +98,14 @@
 
 
 <div class="register-form">
-	<div class="title">
+	<!-- <div class="title">
 		<h2 class="text-blue h4" style="color: #1b00ff;">{{"ajout_nature_critere" | translate}}</h2>
 
-	</div>
+	</div> -->
 	<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
 		
-			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">*</span></label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
 			<div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="natureCritereLibelle" [(ngModel)]="n.natureCritereLibelle"
 					required #natureCritereLibelle="ngModel"
@@ -115,7 +115,7 @@
 			<div *ngIf="f.submitted && natureCritereLibelle.errors" class="invalid-feedback">
 				<div *ngIf="natureCritereLibelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
 			</div></div>
-			<label class="col-md-2 col-sm-6 col-form-label">{{"libelleAr" | translate}} : <span class="text-danger">*</span></label>
+			<label class="col-md-2 col-sm-6 col-form-label">{{"libelleAr" | translate}} : <span class="text-danger">&nbsp;*</span></label>
 			<div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name=" natureCritereLibelleAr"
 					[(ngModel)]="n.natureCritereLibelleAr" required #natureCritereLibelleAr="ngModel"

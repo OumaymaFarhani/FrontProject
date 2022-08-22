@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+    float: right;
+  }
+  
+  td, th {
+    width: 10%;
+
+  }
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+  
+  .mat-column-intervallesInferieur , .mat-column-intervallesSuperieur, .mat-column-intervallesintervallesBareme,.mat-column-operateurstypeByOperateursSuperieur,.mat-column-operateurstypeByOpeOperateurs{
+    flex: none;
+    width: 10%;
+}
+
+
+
+
+.mat-column-Operations {
+  flex: none;
+  width: 17%;
+}
+
+.mat-column-intervallesId {
+  flex: none;
+  width: 5%;
+}

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CategoriesProjet } from 'src/app/models/categories-projet';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,17 +13,17 @@ export class CategoriesprojetService {
   
 
 
-  createcategoriesProjet(categoriesprojet:CategoriesProjet){
+  createcategoriesProjet(categoriesprojet:Categoriesprojet){
     return this.http.post(this.baseUrl+ "/categoriesprojet/ajoutercategoriesprojet",categoriesprojet);
   }
   getAllCategoriesProjet(){
     return this.http.get(this.baseUrl+"/categoriesprojet/affichercategoriesprojet");
   }
   getOneCategoriesProjet(id: number){
-    return this.http.get<CategoriesProjet>(this.baseUrl+"/categoriesprojet/affichercategoriesprojet/" +id);
+    return this.http.get<Categoriesprojet>(this.baseUrl+"/categoriesprojet/affichercategoriesprojet/" +id);
   }
 
-  updateCategoriesProjet(naturecritere:CategoriesProjet){
+  updateCategoriesProjet(naturecritere:Categoriesprojet){
     return this.http.put(this.baseUrl+"/categoriesprojet/modifiercategoriesprojet",naturecritere);
   }
   

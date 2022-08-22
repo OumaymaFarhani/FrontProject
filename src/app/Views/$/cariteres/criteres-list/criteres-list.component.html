@@ -1,0 +1,276 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-3 col-sm-12">
+      <div class="row">
+        <div class="col-md-2">
+            <button type="button" [routerLink]="['/home/CahiersdeChargeList/ajouterClauseAdministrative']"
+            class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
+    
+        </div>
+        <div class="col-md-1">
+          <button type="button"  (click)="changeEtat()"
+          class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
+  
+      </div>
+      </div>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="card-box mb-30">
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+        
+        <div class="title">
+       
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
+  
+        </div>
+        </div>
+    
+    <div class=" row mb-1 ">
+      <label class=" col-md-2 col-sm-6  col-form-label">{{"identifiant" | translate}} : </label>
+      <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesId}} 
+          
+      </div>
+        <label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :</label>
+        <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesLibelle}}
+            <!-- {{c.cahierChargesId}} -->
+        </div>
+       
+        
+    </div>
+    <div class="  row">
+        
+      <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+          {{c.cahierChargesDescription}}
+      </div>
+
+    </div>
+
+
+    <br />
+    
+
+</div>
+
+</div>
+<div class="card-box mb-30">
+  <div class="pd-20 card-box mb-30">
+      <div class="clearfix">
+      
+      <div class="title">
+     
+        <h4 class="text-blue h4" style="color: #1b00ff;">{{"detailsClause" | translate}}</h4>
+
+      </div>
+      </div>
+  
+  <div class=" row mb-1 ">
+
+      <label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+        {{clauseAdmin1.cahierClausesAdministrativesLibelle}}
+          <!-- {{c.cahierChargesId}} -->
+      </div>
+      <label class=" col-md-2 col-sm-6  col-form-label">{{"description" | translate}} : </label>
+      <div class="col-md-4 col-sm-12">
+        {{clauseAdmin1.cahierClausesAdministrativeDescription}}
+        
+      </div>
+      
+  </div>
+  <div class="  row">
+      
+    <label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :</label>
+    <div class="col-md-4 col-sm-12">
+      {{clauseAdmin1.categoriesprojet.categoriesProjetLibelle}}
+        
+    </div>
+
+  </div>
+
+
+  <br />
+  
+
+</div>
+
+</div>
+
+
+<div *ngIf="etatInsertCritere" class="card-box mb-30">
+  <div class="pd-20 card-box mb-30">
+    <div class="title">
+     
+      <h4 class="text-blue h4" style="color: #1b00ff;">{{"AjoutCritere" | translate}}</h4>
+  
+    </div>
+<div class="register-form">
+
+<form name="form" #f="ngForm"  (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+  <div class=" row">
+  
+    <label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+          <div class="col-md-4 col-sm-12">
+      <input type="text" class="form-control  mb-2" name="criteresLibelle" [(ngModel)]="critere.criteresLibelle"
+        required #criteresLibelle="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && criteresLibelle.errors }" />
+    
+  
+    <div *ngIf="f.submitted && criteresLibelle.errors" class="invalid-feedback">
+      <div *ngIf="criteresLibelle.errors['required']"> {{"libelle" | translate}} {{"champ_obligatoire" | translate}} </div>
+    </div>
+  </div>
+      <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :</label>
+          <div class="col-md-4 col-sm-12">
+    
+  </div>
+      </div>
+
+      <div class=" row">
+  
+    <label class="col-md-2 col-sm-6 col-form-label">{{"Abreviation" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+          <div class="col-md-4 col-sm-12">
+      <input type="text" class="form-control  mb-2" name="criteresAbreviation" [(ngModel)]="critere.criteresAbreviation"
+        required #criteresAbreviation="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && criteresAbreviation.errors }" />
+    
+  
+    <div *ngIf="f.submitted && criteresAbreviation.errors" class="invalid-feedback">
+      <div *ngIf="criteresAbreviation.errors['required']"> {{"Abreviation" | translate}} {{"champ_obligatoire" | translate}} </div>
+    </div>
+  </div>
+      <label class="col-md-2 col-sm-6 col-form-label">{{"nature" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+          
+  </div>
+      </div>
+      <div class=" row">
+  
+    <label class="col-md-2 col-sm-6 col-form-label">{{"Eliminatoire" | translate}} :<span class="text-danger">&nbsp;*</span></label>
+          <div class="col-md-4 col-sm-12">
+                 
+                    <input type="radio" name="criteresElimination" value="oui" [(ngModel)]="critere.criteresElimination">
+                    Oui
+                 
+                  
+                    <input type="radio" name="criteresElimination" value="nom" [(ngModel)]="critere.criteresElimination">
+                    Non
+               
+                
+      
+  </div>
+      <label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :</label>
+      <div class="col-md-4 col-sm-12">
+          {{c.categoriesprojet.categoriesProjetLibelle}}
+  </div>
+      </div>
+      <div class="row">
+          <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
+          <div class="col-md-4 col-sm-12">
+      <textarea type="text" class="form-control  " name="criteresDescription"
+        [(ngModel)]="critere.criteresDescription" maxlength="1000" #criteresDescription="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted &&  criteresDescription.errors }" ></textarea>
+      <div *ngIf="f.submitted &&  criteresDescription.errors" class="invalid-feedback">
+        <div *ngIf="criteresDescription.errors['maxlength']">
+                      1000 caracteres au maximum
+                    </div></div>
+    </div>
+          <label class="col-md-2 col-sm-6 col-form-label">{{"valeur" | translate}} :</label>
+          <div class="col-md-4 col-sm-12">
+                 
+              <input type="radio" name=" " value="male"   />
+              Oui
+           
+            
+              <input type="radio" name=" " value="female"  checked />
+              Non
+         
+          
+        
+</div>
+      </div>
+     
+<br/>
+  <div class="form-group row">
+  
+    
+    <button type="submit" class="btn btn-success color-white  offset-7  col-2 ">{{"btn_ajout" | translate}}</button>
+    <button type="button" class="btn  btn-secondary  color-white  col-2 ml-1 "  (click)="changeEtat1()">{{"btn_annulation" | translate}}</button>
+
+  </div>
+</form>
+</div>
+  </div>
+</div>
+<div class="card-box mb-30">
+ 
+  <div class="pd-20 card-box mb-30">
+ 
+    <div class="title">
+     
+      <h4 class="text-blue h4" style="color: #1b00ff;">{{"listeCrit" | translate}}</h4>
+  
+    </div>
+      <div class="row justify-content-between">
+  
+          
+          
+            <br/><br/><br/>
+            
+            <table mat-table matSort [dataSource]="dataSource"  class="mat-elevation-z8">
+             
+              <ng-container matColumnDef="criteresId">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
+                 <td mat-cell *matCellDef="let element"> {{element.criteres.criteresId}} </td> 
+              </ng-container>
+              <ng-container matColumnDef="criteresLibelle">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"libelle" | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.criteres.criteresLibelle}}</td> 
+                </ng-container>
+              <ng-container  matColumnDef="criteresDescription">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"description" | translate}} </th>
+                  <td mat-cell *matCellDef="let element"> {{element.criteres.criteresDescription}} </td> 
+                </ng-container>
+              <ng-container matColumnDef="Abreviation">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"abreviation" | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.criteres.criteresAbreviation}}</td> 
+                </ng-container>
+                <ng-container matColumnDef="NivAbrv">
+                  <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"nivCritere" | translate}} </th>
+                  <td mat-cell *matCellDef="let element"> </td> 
+                  </ng-container>
+                  <ng-container matColumnDef="SousCriter">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"sousCritere" | translate}} </th>
+                    <td mat-cell *matCellDef="let element"></td> 
+                    </ng-container>
+              
+              <ng-container  matColumnDef="Operations">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"operations" | translate}}  </th>
+                <td mat-cell *matCellDef="let element"> 
+                  <button type="button" class="btn btn-info   mr-2"  
+                  ><i class="dw dw-eye color-white "></i> </button>
+                <button type="button" class="btn btn-warning  mr-2"
+                  [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                    class="dw dw-edit2 color-white "></i> </button>
+                    <button type="button" class="btn btn-danger "
+                    [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                      class="dw dw-delete-3 color-white "></i> </button>
+                  {{element.Operations}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+           
+          </div>
+        
+        
+  </div>
+</div>
+
