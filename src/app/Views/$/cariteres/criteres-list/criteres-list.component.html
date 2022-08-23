@@ -221,9 +221,13 @@
       <div class="row justify-content-between">
   
           
-          
-            <br/><br/><br/>
-            
+          <div class="container">
+            <div>
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="rechercher"  autocomplete="off" (keyup)="filterData($event)">
+    
+              </mat-form-field>
+            </div>
             <table mat-table matSort [dataSource]="dataSource"  class="mat-elevation-z8">
              
               <ng-container matColumnDef="criteresId">
@@ -269,7 +273,7 @@
             </table>
            
           </div>
-        
+        </div>
         
   </div>
 </div>

@@ -14,7 +14,7 @@ import { CahierclausesadministrativesService } from 'src/app/services/cahierclau
 import { CahierclausesfinancierestechniquesService } from 'src/app/services/cahierclausesfinancierestechniques/cahierclausesfinancierestechniques.service';
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typecahiercharges.service';
-
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-cahiercharges-view-one',
@@ -27,6 +27,9 @@ export class CahierchargesViewOneComponent implements OnInit {
   cc= new Cahierclausesadministratives();
   b=new Cahierclausesfinancierestechniques();
   bb:any[];
+  listTypeCahierCharge:any[];
+   
+  id:number;
   title="pagination";
   page : number=1;
   count : number = 0;
@@ -46,33 +49,47 @@ idd:any;
   @ViewChild('paginator') paginator! :MatPaginator;
   @ViewChild(MatSort) matSort! : MatSort;
   clauseAdmin1=new Cahierclausesadministratives();
+  l:any=[];
+ etat:boolean;
   constructor(private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
+  
+  ajouter(){
+    console.log(this.listTypeCahierCharge)
  
+    if(this.listTypeCahierCharge.length=0 ){
+      this.router.navigate(['/home/ajouterClause',this.c.cahierChargesId])
+     console.log("non ")    
+    }
+    else{
+      console.log("oui ")
+     
+    }
+      }
+
+
+      
   ngOnInit(): void {
-
-
     this.activated.paramMap.subscribe(
       d=>{
         let id =Number(d.get('id'));
+        console.log("===========>"+id)
         this.cahierchargesService.getOnecahiercharges(id).subscribe(
           d=>{
             this.c=d;
+            console.log("aaaaaaaaaaaa "+this.c)
             }
         )  
       }
     );
+    console.log("=====================>"+this.c.cahierChargesId)
 
-    this.activated.paramMap.subscribe(
-      a=>{
-        let id =Number(a.get('id'));
-        this.typeCahierChargeService.getOneTypeCahierCharge(id).subscribe(
-          a=>{
-            this.t=a;
-            console.log("testttttt"+this.t.typeCahierChargesId)
-            }
-        )  
-      }
-    );
+    this.cahierchargesService.afficherclauserestant(this.c.cahierChargesId).subscribe((response:any)=>{
+      console.log("message"+response)
+      this.listTypeCahierCharge=response
+  });
+    
+
+   
 
     this.activated.paramMap.subscribe(
       d=>{
@@ -88,33 +105,15 @@ idd:any;
       this.dataSource1.paginator= this.paginator;
       this.dataSource1.sort= this.matSort;
 
-    /*  this.list=response;
-      console.log(this.list);
-      */
   });
 }
 );
-/*
-this.activated.paramMap.subscribe(
-  d=>{
-    let id =Number(d.get('id'));
-this.cahierclausesfinancierestechniquesService.getAllcahierclausesfinancierestechniques(id).subscribe((response:any)=>{
- 
- this.dataSource=new MatTableDataSource(response);
-  console.log(response);
-  this.dataSource.paginator= this.paginator;
-  this.dataSource.sort= this.matSort;
 
-  this.listt=response;
-  console.log(this.listt);
-});
-}
-);
-*/
+
+
       
   }
  
-
 
 
   filterData ($event:any) {
@@ -123,6 +122,41 @@ this.cahierclausesfinancierestechniquesService.getAllcahierclausesfinancierestec
   }
 
  
+   // Delete 
+   deletee(cl:Cahierclausemodel,id:number) {
+    
+    swal({
+      title: "Etes-vous sûr de vouloir supprimer cet enregistrement?",
+     
+      icon: "warning",
+      buttons: ["NON","OUI"],
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+
+        if (willDelete) {
+          let i =this.L.indexOf(cl)
+          if(cl.typecahiercharges.typeCahierChargesLibelle=="CCAG" || cl.typecahiercharges.typeCahierChargesLibelle=="CPS" || cl.typecahiercharges.typeCahierChargesLibelle=="CCAP")
+           {
+          this.cahierchargesService.deletecahiercharges(cl.cahierClausesAdministrativesId).subscribe(  
+            ()=>{this.L.splice(i,1);          
+                  this.ngOnInit();
+              });;
+        } 
+      
+      else
+      {
+        this.cahierchargesService.deletecahiercharges(cl.cahierClausesFinancieresTechniquesId).subscribe(  
+          ()=>{this.L.splice(i,1);          
+                this.ngOnInit();
+            });;
+      } 
+    }}  
+  );
+ 
+  } 
+  
+
   checkClause(clause:Cahierclausemodel){
     console.log(clause)
     if(clause.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause.typecahiercharges.typeCahierChargesLibelle=="CCAP") {

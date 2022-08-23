@@ -5,6 +5,7 @@ import { CahierchargestypeEditComponent } from './Views/$/cahierchargestype/cahi
 import { CahierchargestypeListComponent } from './Views/$/cahierchargestype/cahierchargestype-list/cahierchargestype-list.component';
 import { CahierchargestypeViewOneComponent } from './Views/$/cahierchargestype/cahierchargestype-view-one/cahierchargestype-view-one.component';
 import { CahierclauseAjoutComponent } from './Views/$/cahierclause/cahierclause-ajout/cahierclause-ajout.component';
+import { CahierclauseEditComponent } from './Views/$/cahierclause/cahierclause-edit/cahierclause-edit.component';
 import { CahierclauseViewOneComponent } from './Views/$/cahierclause/cahierclause-view-one/cahierclause-view-one.component';
 import { CahierchargesAjoutComponent } from './Views/$/cahierdescharges/cahiercharges-ajout/cahiercharges-ajout.component';
 import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercharges-edit/cahiercharges-edit.component';
@@ -107,6 +108,8 @@ const routes: Routes = [
   },
   { path:"ajouterClause/:id",
   component : CahierclauseAjoutComponent},
+  { path:"modifierClause/:id",
+  component : CahierclauseEditComponent},
  
   {
     path:"intervallesTypeList",

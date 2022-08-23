@@ -1,35 +1,16 @@
 <div class="page-header">
 	<div class="row">
 		<div class="col-md-3 col-sm-12">
-          <!--   <div class="title">
-       
-                <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
-        
-              </div>
-			<nav aria-label="breadcrumb" role="navigation">
-				<ol class="breadcrumb" style="background: none;">
-					<li class="breadcrumb-item">
-						<a [routerLink]="['/home']">Accueil
-						</a>
-					</li>
-					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-						{{"détails_cahier_charges" | translate}}
-					</li>
-				</ol>
-			</nav> -->
+         
       <div class="row">
         <div class="col">
             <button type="button" [routerLink]="['/home/CahiersdeChargeList']"
             class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
     
         </div>
+        
         <div class="col">
-            <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-            class=" btn btn-info color-white  "><i class="icon-copy fa fa-cog" aria-hidden="true"></i> </button>
-    
-        </div>
-        <div class="col">
-            <button type="button"  [routerLink]="['/home/ajouterClause',c.cahierChargesId]"
+            <button type="button"  (click)="ajouter()"  
             class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
     
         </div>
@@ -43,24 +24,7 @@
 <div class="card-box mb-30">
     <div class="pd-20 card-box mb-30">
         <div class="clearfix">
-         <!--  <div class="row">
-            <div class="col">
-                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                class=" btn btn-secondary color-white  "><i class="icon-copy fa fa-arrow-left" aria-hidden="true"></i> </button>
-        
-            </div>
-            <div class="col">
-                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                class=" btn btn-info color-white  "><i class="icon-copy fa fa-cog" aria-hidden="true"></i> </button>
-        
-            </div>
-            <div class="col">
-                <button type="button" [routerLink]="['/home/ajouterCahiersdeCharge']"
-                class=" btn btn-success color-white  "><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
-        
-            </div>
-        </div>  -->
-        <div class="title">
+          <div class="title">
        
           <h4 class="text-blue h4" style="color: #1b00ff;">{{"détails_cahier_charges" | translate}}</h4>
   
@@ -118,10 +82,15 @@
       </div>
         <div class="row justify-content-between">
     
+          <div class="container">
             
-            
-              <br/><br/><br/>
-              
+             
+              <div>
+                <mat-form-field appearance="fill">
+                  <input matInput  placeholder="rechercher" autocomplete="off" (keyup)="filterData($event)">
+      
+                </mat-form-field>
+              </div> 
               <table mat-table matSort [dataSource]="dataSource" [dataSource]="dataSource1" class="mat-elevation-z8">
               
                
@@ -169,11 +138,11 @@
                     ><i class="dw dw-eye color-white "></i> </button>
       
                   <button type="button" class="btn btn-warning  mr-2"
-                    [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                    [routerLink]="['/home/modifierClause',element.cahierChargesId]" ><i
                       class="dw dw-edit2 color-white "></i> </button>
 
                       <button type="button" class="btn btn-danger "
-                      [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                      [routerLink]="['/home/modifierCahiersdeCharge',element.cahierClausesFinancieresTechniquesId]" ><i
                         class="dw dw-delete-3 color-white "></i> </button>
                 
                     
@@ -190,7 +159,7 @@
       
       
               </table>
-             
+          </div>
             </div>
           
           

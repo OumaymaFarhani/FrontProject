@@ -84,8 +84,8 @@
         [ngClass]="{'invalid-textbox' : f.submitted && typecahiercharges.invalid }" required>
                >
 			 
-				   <option value=" " > </option>
-					<option class="fa" *ngFor="let typeCahierCharge of listTypeCahierCharge" [ngValue]="typeCahierCharge.typeCahierChargesId">{{typeCahierCharge.typeCahierChargesLibelle}}</option>
+				   
+					<option class="fa" *ngFor="let typeCahierCharge of listTypeCahierCharge" [ngValue]="typeCahierCharge">{{typeCahierCharge.typeCahierChargesLibelle}}</option>
 				
 				
 				</select>

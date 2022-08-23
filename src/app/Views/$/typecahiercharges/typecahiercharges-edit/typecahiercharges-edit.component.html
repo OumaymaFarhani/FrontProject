@@ -5,7 +5,7 @@
 			<nav aria-label="breadcrumb" role="navigation">
 				<ol class="breadcrumb" style="background: none;">
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						<a [routerLink]="['/home/typecahierchargeList']">{{"consultertypeCh" | translate}}
 						</a>
 					</li>
 					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
@@ -56,7 +56,7 @@
 		</div>
         <div class="row">
           
-            <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}}  : <span class="text-danger">&nbsp;*</span></label>
+            <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}}  : </label>
 			<div class="col-md-4 col-sm-12">
 				<textarea type="text" class="form-control  " name="typeCahierDesChargesDescription"
 					[(ngModel)]="typecahiercharge.typeCahierDesChargesDescription" maxlength="1000" #typeCahierDesChargesDescription="ngModel"
@@ -86,7 +86,7 @@
 				{{"btn_annulation" | translate}}
 			</button>
 	
-			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_modification" | translate}}</button>
 			
 		</div>
 	</form>

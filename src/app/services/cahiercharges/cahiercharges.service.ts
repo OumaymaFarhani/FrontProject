@@ -54,7 +54,13 @@ export class CahierchargesService {
   afficherclauserestant(id:number){
     return this.http.get<Typecahiercharges>(this.baseUrl+"/cahiercharges/affichercahierchargesclause/" +id);
   }
+  deleteclause(id: number){
+    return this.http.delete(this.baseUrl+"/cahiercharges/supprimerclauses/" +id);
+  }
 
+  updateclause(c:Cahierclausemodel){
+    return this.http.put(this.baseUrl+"/cahiercharges/modifierclause",c);
+  }
 
 
 }

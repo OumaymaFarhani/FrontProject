@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cahiercharges } from 'src/app/models/cahiercharges';
 import { Cahierclausemodel } from 'src/app/models/cahierclausemodel';
 import { Cahierclausesadministratives } from 'src/app/models/cahierclausesadministratives';
+import { Cahierclausesfinancierestechniques } from 'src/app/models/cahierclausesfinancierestechniques';
 import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { Typecahiercharges } from 'src/app/models/typecahiercharges';
 import { CahierchargesService } from 'src/app/services/cahiercharges/cahiercharges.service';
@@ -31,7 +32,9 @@ export class CahierclauseAjoutComponent implements OnInit {
   t=new Typecahiercharges();
   cahierChargesId:number;
   ca=new Cahierclausesadministratives();
+  clauseFinanciere=new Cahierclausesfinancierestechniques();
   clause=new Cahierclausemodel();
+  typeclause:boolean;
   constructor(private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
   form = {
   
@@ -47,21 +50,9 @@ export class CahierclauseAjoutComponent implements OnInit {
     acceptTerms: false,
 };
 
-selectedTeam = '1';
-onSelected(value:string): void {
-  this.selectedTeam = value;
- // this.clause.typecahiercharges.typeCahierChargesLibelle=this.selectedTeam;
-  console.log(this.selectedTeam );
-}
+ 
 
-
-selectedTeam1 = '1';
-onSelected1(value:string): void {
-  this.selectedTeam1 = value;
-  console.log(value);
-  this.clause.typeCahierChargesId=this.selectedTeam1;
-  console.log(this.selectedTeam1);
-}
+ 
   ngOnInit(): void {
     
 
@@ -84,33 +75,28 @@ onSelected1(value:string): void {
       console.log(response);
       this.listTypeCahierCharge=response
   });
-/*
-    this.typeCahierChargeService.getAllTypeCahierCharge().subscribe((response:any)=>{
-      console.log(response);
-      this.listTypeCahierCharge=response
-  });
-*/
 
-     
   }
 
 
   
 onSubmit(): void {
+  this.clause.cahierChargesId=this.c.cahierChargesId
  this.clause.cahiercharges=this.c;
  this.clause.categoriesprojet=this.c.categoriesprojet
  this.clause.typecahiercharges=this.t
+ 
  console.log(this.clause.cahierChargesId)
  console.log(this.clause.categoriesprojet)
+ console.log("typeeeeeeeeeeeeeee"+this.clause.typecahiercharges)
  console.log(this.clause)
  this.cahierchargesService.ajoutercahierchargesclause(this.clause).subscribe(
      ()=> (
-     
+      
       this.router.navigate(['/home/CahiersdeChargeList/'+this.c.cahierChargesId]))
+
   )
 
-
-  console.log("**************************************"+this.clause.categoriesprojet)
 
 
 

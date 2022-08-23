@@ -140,6 +140,10 @@ onSubmit(): void {
 
 
 
+filterData ($event:any) {
+  this.dataSource.filter=$event.target.value;
+
+}
 
 onReset(form: NgForm): void {
   form.reset();

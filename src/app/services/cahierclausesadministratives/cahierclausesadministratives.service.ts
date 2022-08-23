@@ -26,4 +26,9 @@ export class CahierclausesadministrativesService {
     return this.http.delete(this.baseUrl+"/cahierclausesadministratives/supprimerclauseAdmin/" +id);
   }
 
+  
+  ajouterclauseadmin(c:Cahierclausesadministratives){
+    return this.http.post(this.baseUrl+"/cahierclausesadministratives/ajouterclause",c);
+  }
+
 }

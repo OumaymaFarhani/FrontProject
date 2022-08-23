@@ -8,7 +8,7 @@
 			<nav aria-label="breadcrumb" role="navigation">
 				<ol class="breadcrumb" style="background: none;">
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/home']">Accueil
+						<a [routerLink]="['/home/naturecritereList']">{{"liste_nature_critere" | translate}}
 						</a>
 					</li>
 					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
@@ -87,7 +87,7 @@
 	<br/>
 	<div class="form-group row">
 		<button type="button" class="btn  btn-secondary color-white offset-7 col-2"  [routerLink]="['/home/naturecritereList']">{{"btn_annulation" | translate}}</button>
-		<button type="button" class="btn btn-success color-white    col-2 ml-1 " (click)="saveUpdate()">{{"btn_ajout" | translate}}</button>
+		<button type="button" class="btn btn-success color-white    col-2 ml-1 " (click)="saveUpdate()">{{"btn_modification" | translate}}</button>
 		 
 		 </div>
 </form>
