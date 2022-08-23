@@ -5,11 +5,11 @@
 			<nav aria-label="breadcrumb" role="navigation">
 				<ol class="breadcrumb" style="background: none;">
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/home']">{{"accueil" | translate}}
+						<a [routerLink]="['/home/cahierchargeTypeList']">{{"liste_cahier_charges" | translate}}
 						</a>
 					</li>
 					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-						{{"ajout_cahier_charges" | translate}}
+						{{"modifier_cahier_chargest" | translate}}
 					</li>
 				</ol>
 			</nav>
@@ -99,7 +99,7 @@
 			</button> -->
 			<button type="button" class="btn  btn-secondary  color-white offset-7 col-2"  [routerLink]="['/home/cahierchargeTypeList']">{{"btn_annulation" | translate}}</button>
 	
-			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_ajout" | translate}}</button>
+			<button type="submit" class="btn btn-success color-white    col-2 ml-1 ">{{"btn_modification" | translate}}</button>
 			
 		</div>
 	</form>

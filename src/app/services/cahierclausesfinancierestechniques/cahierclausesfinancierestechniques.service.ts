@@ -17,5 +17,10 @@ export class CahierclausesfinancierestechniquesService {
   deleteClauseFinanc(id: number){
     return this.http.delete(this.baseUrl+"/cahierclausesfinancierestechniques/supprimerclausefinanciere/" +id);
   }
+
+  
+  ajouterclauseFinnanciere(c:Cahierclausesfinancierestechniques){
+    return this.http.post(this.baseUrl+"/cahierclausesfinancierestechniques/ajouterclause",c);
+  }
 }
 

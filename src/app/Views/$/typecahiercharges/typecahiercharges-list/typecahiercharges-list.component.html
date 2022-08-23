@@ -3,17 +3,14 @@
       <div class="col-md-6 col-sm-12">
         <div class="title">
          
-          <h4 class="text-blue h4" style="color: #1b00ff;">{{"liste_categorie_projet" | translate}}</h4>
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"consultertypeCh" | translate}}</h4>
   
         </div>
         <nav aria-label="breadcrumb" role="navigation">
           <ol class="breadcrumb" style="background: none;">
-            <li class="breadcrumb-item">
-              <a [routerLink]="['/home']">{{"accueil" | translate}}
-              </a>
-            </li>
+           
             <li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-              {{"liste_categorie_projet" | translate}}
+              {{"consultertypeCh" | translate}}
             </li>
           </ol>
         </nav>
@@ -43,7 +40,7 @@
           
            <div>
             <mat-form-field appearance="fill">
-              <input matInput   autocomplete="off" (keyup)="filterData($event)">
+              <input matInput  placeholder="rechercher" autocomplete="off" (keyup)="filterData($event)">
   
             </mat-form-field>
           </div> 
