@@ -20,4 +20,9 @@ export class Cahierclausemodel {
      categoriesProjetId:any;
      cahierClausesAdministrativesLibelle:String ;
      cahierClausesAdministrativeDescription:String ;
+     
+	   cahierDesClauseFinancierTechnqueLibelle:String;
+        cahierClausesFinancieresTechniquesDescription:String;
+              cahierclausesfinancierestechniquescol:String;
+                  CahierClauseFinancieresTechniquesReelDateCration: Date;
 }
