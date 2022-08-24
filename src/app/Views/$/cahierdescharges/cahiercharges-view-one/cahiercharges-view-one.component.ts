@@ -22,6 +22,8 @@ import swal from 'sweetalert';
   styleUrls: ['./cahiercharges-view-one.component.css']
 })
 export class CahierchargesViewOneComponent implements OnInit {
+  etatFinenciere:boolean=false;
+  etatAdmin:boolean=false;
   c= new Cahiercharges();
   t= new Typecahiercharges();
   cc= new Cahierclausesadministratives();
@@ -199,10 +201,13 @@ idd:any;
   checkClause1(clause1:Cahierclausemodel){
     console.log("*************************************************"+clause1)
     if(clause1.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause1.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause1.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
-     
+     // this.etatFinenciere=false
+     // this.etatAdmin=true
       this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesAdministrativesId,idCriter:clause1.criteresId,CritereAdmin:true}]);
     }
     else{
+     // this.etatFinenciere=true
+      //this.etatAdmin=false
       this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesFinancieresTechniquesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesFinancieresTechniquesId,idCriter:clause1.criteresId,CritereFinan:true}]);
    
     }
