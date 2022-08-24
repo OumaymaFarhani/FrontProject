@@ -3,12 +3,12 @@ import { Cahiercharges } from "./cahiercharges";
 import { Typecahiercharges } from "./typecahiercharges";
 export class Cahierclausesfinancierestechniques {
 
-    private  cahierClausesFinancieresTechniquesId:number;
-	private  categoriesprojet:Categoriesprojet;
-	private  typecahiercharges:Typecahiercharges;
-	private  cahiercharges:Cahiercharges;
-	private  cahierDesClauseFinancierTechnqueLibelle:String;
-	private cahierClausesFinancieresTechniquesDescription:String;
-	private  cahierclausesfinancierestechniquescol:String;
-	private 	CahierClauseFinancieresTechniquesReelDateCration: Date;
+      cahierClausesFinancieresTechniquesId:number;
+	   categoriesprojet:Categoriesprojet;
+	   typecahiercharges:Typecahiercharges;
+	   cahiercharges:Cahiercharges;
+	   cahierDesClauseFinancierTechnqueLibelle:String;
+  cahierClausesFinancieresTechniquesDescription:String;
+	   cahierclausesfinancierestechniquescol:String;
+	  	CahierClauseFinancieresTechniquesReelDateCration: Date;
 }

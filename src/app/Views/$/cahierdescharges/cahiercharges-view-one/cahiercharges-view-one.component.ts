@@ -27,8 +27,8 @@ export class CahierchargesViewOneComponent implements OnInit {
   cc= new Cahierclausesadministratives();
   b=new Cahierclausesfinancierestechniques();
   bb:any[];
-  listTypeCahierCharge:any[];
-   
+  listTypeCahierCharge:Typecahiercharges[];
+    
   id:number;
   title="pagination";
   page : number=1;
@@ -54,16 +54,49 @@ idd:any;
   constructor(private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
   
   ajouter(){
-    console.log(this.listTypeCahierCharge)
- 
-    if(this.listTypeCahierCharge.length=0 ){
-      this.router.navigate(['/home/ajouterClause',this.c.cahierChargesId])
-     console.log("non ")    
-    }
-    else{
-      console.log("oui ")
-     
-    }
+    this.activated.paramMap.subscribe(
+      d=>{
+        let id =Number(d.get('id'));
+        console.log("===========>"+id)
+        this.cahierchargesService.getOnecahiercharges(id).subscribe(
+          d=>{
+            this.c=d;
+            console.log("aaaaaaaaaaaa "+this.c.cahierChargesDescription)
+            
+    console.log("=====================>"+this.c.cahierChargesId)
+            }
+        )  
+      }
+      
+    );
+
+    this.cahierchargesService.afficherclauserestant(this.c.cahierChargesId).subscribe((response:any)=>{
+      
+      this.listTypeCahierCharge=response
+      console.log("message"+this.listTypeCahierCharge)
+      let length = Object.keys(this.listTypeCahierCharge).length;
+      if(Object.keys(this.listTypeCahierCharge).length==0 ){
+        console.log("non ") 
+       
+        swal({
+          text: "Tous les cahiers des clauses de ce cahier des charges sont crées !",
+         
+          icon: "warning",
+        
+          dangerMode: true,
+        })
+        this.router.navigate(['/home/CahiersdeChargeList',this.c.cahierChargesId])
+         
+      }
+      else{
+        this.router.navigate(['/home/ajouterClause',this.c.cahierChargesId])
+      
+        console.log("oui ")
+       
+      }
+  });
+    
+   
       }
 
 
@@ -76,13 +109,16 @@ idd:any;
         this.cahierchargesService.getOnecahiercharges(id).subscribe(
           d=>{
             this.c=d;
-            console.log("aaaaaaaaaaaa "+this.c)
+            console.log("aaaaaaaaaaaa "+this.c.cahierChargesDescription)
+            
+    console.log("=====================>"+this.c.cahierChargesId)
             }
         )  
       }
+      
     );
-    console.log("=====================>"+this.c.cahierChargesId)
 
+    console.log("=====================>"+this.c.cahierChargesId)
     this.cahierchargesService.afficherclauserestant(this.c.cahierChargesId).subscribe((response:any)=>{
       console.log("message"+response)
       this.listTypeCahierCharge=response
@@ -163,6 +199,33 @@ idd:any;
      
       this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesAdministrativesId,idCriter:clause.criteresId,CritereAdmin:true}]);
     }
+    else{
+      this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesFinancieresTechniquesId,idCriter:clause.criteresId,CritereFinan:true}]);
+   
+    }
 
   }
+
+
+  checkClause1(clause:Cahierclausemodel){
+    console.log(clause)
+    if(clause.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
+     
+      this.router.navigate(['/home/modifierClause/'+clause.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesAdministrativesId,idCriter:clause.criteresId,CritereAdmin:true}]);
+    }
+    else{
+      this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesFinancieresTechniquesId,idCriter:clause.criteresId,CritereFinan:true}]);
+   
+    }
+
+  }
+
+/* 
+  test(model:Cahierclausemodel) {
+    if (model.cahierClausesAdministrativesId === this.cc.cahierClausesAdministrativesId) {
+      return this.cc.cahierClausesAdministrativesId;
+    } else if (model.cahierClausesFinancieresTechniquesId === this.b.cahierClausesFinancieresTechniquesId) {
+      return this.b.cahierClausesFinancieresTechniquesId;
+    }
+  } */
 }
