@@ -97,6 +97,8 @@ export class CahierclauseEditComponent implements OnInit {
 
   
 onSubmit(): void { 
+  if(this.clause.typecahiercharges.typeCahierChargesLibelle=="CCAG" || this.clause.typecahiercharges.typeCahierChargesLibelle=="CPS" || this.clause.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
+    
   this.clause.libelle=this.clause.cahierClausesAdministrativesLibelle
   this.clause.description=this.clause.cahierClausesAdministrativeDescription
  this.cahierchargesService.updateclause(this.clause).subscribe(
@@ -104,6 +106,16 @@ onSubmit(): void {
      
       this.router.navigate(['/home/CahiersdeChargeList/'+this.c.cahierChargesId]))
   )
+     }
+     else{
+      this.clause.libelle=this.clause.cahierDesClauseFinancierTechnqueLibelle
+      this.clause.description=this.clause.cahierClausesFinancieresTechniquesDescription
+     this.cahierchargesService.updateclause(this.clause).subscribe(
+         ()=> (
+         
+          this.router.navigate(['/home/CahiersdeChargeList/'+this.c.cahierChargesId]))
+      )
+     }
 
 
   console.log("**************************************"+this.clause.categoriesprojet)
