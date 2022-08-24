@@ -138,11 +138,11 @@
                     ><i class="dw dw-eye color-white "></i> </button>
       
                   <button type="button" class="btn btn-warning  mr-2"
-                    [routerLink]="['/home/modifierClause',element.cahierChargesId]" ><i
+                  (click)="checkClause1(element)" ><i
                       class="dw dw-edit2 color-white "></i> </button>
 
-                      <button type="button" class="btn btn-danger "
-                      [routerLink]="['/home/modifierCahiersdeCharge',element.cahierClausesFinancieresTechniquesId]" ><i
+                      <button type="button" class="btn btn-danger " 
+                      [routerLink]="['/home/modifierClause',element.cahierClausesFinancieresTechniquesId]" ><i
                         class="dw dw-delete-3 color-white "></i> </button>
                 
                     

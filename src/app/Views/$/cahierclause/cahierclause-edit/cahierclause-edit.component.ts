@@ -82,16 +82,18 @@ onSelected(value:string): void {
 
 
   this.activated.paramMap.subscribe(
-    d=>{
-      this.id =Number(d.get('id'));
-      this.cahierclausesadministrativesService.getONEClauseAdmin(this.id).subscribe(
-        d=>{
-          this.ca=d;
+    b=>{
+      let id =Number(this.activated.snapshot.paramMap.get('idClause'));
+      this.cahierclausesadministrativesService.getONEClauseAdmin(id).subscribe(
+        b=>{
+          this.ca=b;
+          console.log("messsage"+this.ca)
           }
       )  
     }
-    
   );
+
+  
 
      
   }

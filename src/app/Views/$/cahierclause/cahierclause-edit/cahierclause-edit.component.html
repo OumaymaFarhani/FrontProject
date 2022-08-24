@@ -48,7 +48,7 @@
 		
 			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
             <div class="col-md-4 col-sm-12">
-				<input type="text" class="form-control  mb-2" name="libelle" [(ngModel)]="clause.libelle"
+				<input type="text" class="form-control  mb-2" name="libelle" [(ngModel)]="ca.cahierClausesAdministrativesLibelle"
 					required #libelle="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted && libelle.errors }" />
 			
