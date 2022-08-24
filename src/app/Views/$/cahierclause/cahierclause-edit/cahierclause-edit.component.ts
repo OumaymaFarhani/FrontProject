@@ -33,6 +33,7 @@ export class CahierclauseEditComponent implements OnInit {
   cahierChargesId:number;
   ca=new Cahierclausesadministratives();
   clause=new Cahierclausemodel();
+  model=new Cahierclausemodel();
   constructor(private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
   form = {
   
@@ -48,66 +49,56 @@ export class CahierclauseEditComponent implements OnInit {
     acceptTerms: false,
 };
 
-selectedTeam = '1';
-onSelected(value:string): void {
-  this.selectedTeam = value;
- // this.clause.typecahiercharges.typeCahierChargesLibelle=this.selectedTeam;
-  console.log(this.selectedTeam );
-}
-
-
-
-  ngOnInit(): void {
-    
-
+  ngOnInit(): void {  
+    this.activated.paramMap.subscribe(
+      a=>{
+        let id =Number(this.activated.snapshot.paramMap.get('idType'));
+        this.typeCahierChargeService.getOneTypeCahierCharge(id).subscribe(
+          a=>{
+            this.t=a;
+             }
+             
+        )  
+        console.log("oumaaymaaaaaaaaaaa*****************"+this.t.typeCahierChargesLibelle)
+          
+      }
+    );
     this.activated.paramMap.subscribe(
       d=>{
-        this.id =Number(d.get('id'));
-        this.cahierchargesService.getOnecahiercharges(this.id).subscribe(
+        let id =Number(this.activated.snapshot.paramMap.get('idch'));
+         
+        this.cahierchargesService.getOnecahiercharges(id).subscribe(
           d=>{
             this.c=d;
-            console.log(this.c.cahierChargesId)
+            console.log("aloooooooooooooooooooooooooooooooooooo"+this.c.cahierChargesId)
          
             }
         )  
       }
       
     );
-
-
-    this.cahierchargesService.afficherclauserestant(this.id).subscribe((response:any)=>{
-      console.log(response);
-      this.listTypeCahierCharge=response
-  });
-
-
-  this.activated.paramMap.subscribe(
-    b=>{
-      let id =Number(this.activated.snapshot.paramMap.get('idClause'));
-      this.cahierclausesadministrativesService.getONEClauseAdmin(id).subscribe(
-        b=>{
-          this.ca=b;
-          console.log("messsage"+this.ca)
-          }
-      )  
-    }
-  );
-
   
-
+    this.activated.paramMap.subscribe(
+      b=>{
+        let id =Number(this.activated.snapshot.paramMap.get('idClause'));
+        this.cahierclausesadministrativesService.getONEClause(id).subscribe(
+          b=>{
+            this.clause=b; console.log("claaaaaaaaaaaaaaause"+this.clause.cahierClausesAdministrativesId)
      
+             }
+        )  
+        }
+    );   
+    
+
+
   }
 
 
   
-onSubmit(): void {
- this.clause.cahiercharges=this.c;
- this.clause.categoriesprojet=this.c.categoriesprojet
- this.clause.typecahiercharges=this.t
- console.log(this.clause.cahierChargesId)
- console.log(this.clause.categoriesprojet)
- console.log(this.clause)
- 
+onSubmit(): void { 
+  this.clause.libelle=this.clause.cahierClausesAdministrativesLibelle
+  this.clause.description=this.clause.cahierClausesAdministrativeDescription
  this.cahierchargesService.updateclause(this.clause).subscribe(
      ()=> (
      
@@ -116,16 +107,7 @@ onSubmit(): void {
 
 
   console.log("**************************************"+this.clause.categoriesprojet)
-
-     
-    
-
 }
-
-
-
-
-
 onReset(form: NgForm): void {
   form.reset();
 }

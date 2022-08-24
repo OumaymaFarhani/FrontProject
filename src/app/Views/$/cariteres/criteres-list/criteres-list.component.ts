@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cahiercharges } from 'src/app/models/cahiercharges';
 import { Cahierclausemodel } from 'src/app/models/cahierclausemodel';
 import { Cahierclausesadministratives } from 'src/app/models/cahierclausesadministratives';
+import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { Criteres } from 'src/app/models/criteres';
 import { Criterescahierclausesadministratives } from 'src/app/models/criterescahierclausesadministratives';
 import { Typecahiercharges } from 'src/app/models/typecahiercharges';
@@ -33,7 +34,7 @@ export class CriteresListComponent implements OnInit {
   critereAdmin=new Criterescahierclausesadministratives();
   displayedColumns= [ 'criteresId','criteresLibelle','criteresDescription','Abreviation','NivAbrv','SousCriter','Operations']
   dataSource !:MatTableDataSource<any>;
-  
+  categorie=new Categoriesprojet();
   @ViewChild('paginator') paginator! :MatPaginator;
   @ViewChild(MatSort) matSort! : MatSort;
 
@@ -54,7 +55,7 @@ export class CriteresListComponent implements OnInit {
 
   ngOnInit(): void {
     
-    console.log("testIdCh",this.activated.snapshot.paramMap.get('idCriter'));
+    console.log("testidCritere",this.activated.snapshot.paramMap.get('idCriter'));
    
     console.log("testIdCh",this.activated.snapshot.paramMap.get('idch'));
     console.log("testidClause",this.activated.snapshot.paramMap.get('idClause'));
@@ -89,7 +90,7 @@ export class CriteresListComponent implements OnInit {
         this.cahierclausesadministrativesService.getONEClauseAdmin(id).subscribe(
           b=>{
             this.clauseAdmin1=b;
-            console.log("messsage"+this.clauseAdmin1)
+            console.log("messsageeeeeeeeeeeeeeee"+this.clauseAdmin1.cahierClausesAdministrativesId)
             }
         )  
       }
@@ -115,7 +116,8 @@ export class CriteresListComponent implements OnInit {
 
     this.activated.paramMap.subscribe(
       d=>{
-        let id =Number(d.get('id'));
+        let id =Number(this.activated.snapshot.paramMap.get('idCriter'));
+   
         this.critereService.getOneCritere(id).subscribe(
           d=>{
             this.critere=d;
@@ -134,7 +136,10 @@ changeEtat1(){
   this.etatInsertCritere=false;
 }
 onSubmit(): void {
-
+  this.c.categoriesprojet=this.categorie
+  this.criterescahierclausesadministrativesService.createCritereAdmin(this.critereAdmin).subscribe(
+    ()=>  (this.router.navigate(['/home/CahiersdeChargeList']))
+  )
 }
 
 
