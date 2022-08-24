@@ -123,10 +123,6 @@ idd:any;
       console.log("message"+response)
       this.listTypeCahierCharge=response
   });
-    
-
-   
-
     this.activated.paramMap.subscribe(
       d=>{
         let id =Number(d.get('id'));
@@ -143,14 +139,7 @@ idd:any;
 
   });
 }
-);
-
-
-
-      
-  }
- 
-
+);  }
 
   filterData ($event:any) {
     this.dataSource.filter=$event.target.value;
@@ -207,14 +196,14 @@ idd:any;
   }
 
 
-  checkClause1(clause:Cahierclausemodel){
-    console.log(clause)
-    if(clause.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
+  checkClause1(clause1:Cahierclausemodel){
+    console.log("*************************************************"+clause1)
+    if(clause1.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause1.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause1.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
      
-      this.router.navigate(['/home/modifierClause/'+clause.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesAdministrativesId,idCriter:clause.criteresId,CritereAdmin:true}]);
+      this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesAdministrativesId,idCriter:clause1.criteresId,CritereAdmin:true}]);
     }
     else{
-      this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesFinancieresTechniquesId,idCriter:clause.criteresId,CritereFinan:true}]);
+      this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesFinancieresTechniquesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesFinancieresTechniquesId,idCriter:clause1.criteresId,CritereFinan:true}]);
    
     }
 

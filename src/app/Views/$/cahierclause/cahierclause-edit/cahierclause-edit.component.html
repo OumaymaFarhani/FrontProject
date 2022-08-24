@@ -45,10 +45,11 @@
 
 	<form name="form" #f="ngForm"  (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 		<div class=" row">
-		
+      
 			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
             <div class="col-md-4 col-sm-12">
-				<input type="text" class="form-control  mb-2" name="libelle" [(ngModel)]="ca.cahierClausesAdministrativesLibelle"
+				<input type="text" class="form-control  mb-2" name="libelle" 
+        [(ngModel)]="clause.cahierClausesAdministrativesLibelle"
 					required #libelle="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted && libelle.errors }" />
 			
@@ -69,7 +70,7 @@
 			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
             <div class="col-md-4 col-sm-12">
 				<textarea type="text" class="form-control  " name="description"
-					[(ngModel)]="clause.description" maxlength="1000" #description="ngModel"
+					[(ngModel)]="clause.cahierClausesAdministrativeDescription" maxlength="1000" #description="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted &&  description.errors }" ></textarea>
 				<div *ngIf="f.submitted &&  description.errors" class="invalid-feedback">
 					<div *ngIf="description.errors['maxlength']">
@@ -78,25 +79,9 @@
 			</div>
             <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :<span class="text-danger">&nbsp;*</span></label>
             <div class="col-md-4 col-sm-12">
-				
-				<select class="form-control" name="typecahiercharges" id="typecahiercharges" 
-				#typecahiercharges="ngModel" [(ngModel)]="t" 
-        [ngClass]="{'invalid-textbox' : f.submitted && typecahiercharges.invalid }" required>
-               >
-			 
-				   <option value=" " > </option>
-					<option class="fa" *ngFor="let typeCahierCharge of listTypeCahierCharge" [ngValue]="typeCahierCharge.typeCahierChargesId">{{typeCahierCharge.typeCahierChargesLibelle}}</option>
-				
-				
-				</select>
-				
-
-
-				<div *ngIf="typecahiercharges.invalid && f.submitted">
-					<span style="color: red;">{{"categories" | translate}} {{"champ_obligatoire" | translate}} </span>
-				  </div> 
+				{{clause.typecahiercharges.typeCahierChargesLibelle}}
+			
 			<br/>
-			<!-- {{c.categoriesProjetId | json}} -->
 			</div>
        
 		</div>

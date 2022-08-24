@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Cahierclausemodel } from 'src/app/models/cahierclausemodel';
 import { Cahierclausesadministratives } from 'src/app/models/cahierclausesadministratives';
 import { environment } from 'src/environments/environment';
 
@@ -21,6 +22,11 @@ export class CahierclausesadministrativesService {
 
   getONEClauseAdmin(id:number){
     return this.http.get<Cahierclausesadministratives>(this.baseUrl+"/cahierclausesadministratives/"+id);
+  }
+
+
+  getONEClause(id:number){
+    return this.http.get<Cahierclausemodel>(this.baseUrl+"/cahierclausesadministratives/"+id);
   }
   deleteClauseAdmin(id: number){
     return this.http.delete(this.baseUrl+"/cahierclausesadministratives/supprimerclauseAdmin/" +id);
