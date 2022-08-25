@@ -137,6 +137,7 @@ changeEtat1(){
 }
 onSubmit(): void {
   this.c.categoriesprojet=this.categorie
+  this.critereAdmin.cahierClausesAdministrativesId=this.clauseAdmin1.cahierClausesAdministrativesId
   this.criterescahierclausesadministrativesService.createCritereAdmin(this.critereAdmin).subscribe(
     ()=>  (this.router.navigate(['/home/CahiersdeChargeList']))
   )

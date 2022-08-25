@@ -42,6 +42,7 @@ export class CahierchargesViewOneComponent implements OnInit {
   list:any[];
   listt:any[];
 idd:any;
+ 
   cahiercharges: Cahiercharges[];
   cahierclausesAdministratives: Cahierclausesadministratives[];
   displayedColumns= [ 'cahierClausesAdministrativesId','cahierClausesAdministrativesLibelle','cahierClausesAdministrativeDescription','typecahiercharges','categoriesprojet','Operations']
@@ -213,6 +214,45 @@ idd:any;
     }
 
   }
+  deleteee( clause1111:Cahierclausemodel) {
+     
+   
+    
+        swal({
+          title: "Etes-vous sûr de vouloir supprimer cet enregistrement?",
+         
+          icon: "warning",
+          buttons: ["NON","OUI"],
+          dangerMode: true,
+        })
+          .then((willDelete) => {
+    
+            if (willDelete) {
+              let i =this.L.indexOf(clause1111)
+              if(clause1111.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause1111.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause1111.typecahiercharges.typeCahierChargesLibelle=="CCAP")
+               {
+              this.cahierclausesadministrativesService.deleteClauseAdmin(clause1111.cahierClausesAdministrativesId).subscribe(  
+                ()=>{this.L.splice(i,1);          
+                      this.ngOnInit();
+                  });;
+            } 
+          
+          else
+          {
+            this.cahierclausesfinancierestechniquesService.deleteClauseFinanc(clause1111.cahierClausesFinancieresTechniquesId).subscribe(  
+              ()=>{this.L.splice(i,1);          
+                    this.ngOnInit();
+                });;
+          } 
+        }}  
+      );
+     
+      }
+     
+    
 
+
+   
+ 
  
 }
