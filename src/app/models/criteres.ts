@@ -5,6 +5,7 @@ import { TypeCritere } from "./type-critere";
 export class Criteres {
 
     criteresId :number;
+	cahierClausesAdministrativesId:number;
  criteres: Criteres;
 	   typecritere:TypeCritere;
 	 naturecritere:NatureCritere;
