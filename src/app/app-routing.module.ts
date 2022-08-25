@@ -6,12 +6,14 @@ import { CahierchargestypeListComponent } from './Views/$/cahierchargestype/cahi
 import { CahierchargestypeViewOneComponent } from './Views/$/cahierchargestype/cahierchargestype-view-one/cahierchargestype-view-one.component';
 import { CahierclauseAjoutComponent } from './Views/$/cahierclause/cahierclause-ajout/cahierclause-ajout.component';
 import { CahierclauseEditComponent } from './Views/$/cahierclause/cahierclause-edit/cahierclause-edit.component';
+import { CahierclauseFinanEditComponent } from './Views/$/cahierclause/cahierclause-finan-edit/cahierclause-finan-edit.component';
 import { CahierclauseViewOneComponent } from './Views/$/cahierclause/cahierclause-view-one/cahierclause-view-one.component';
 import { CahierchargesAjoutComponent } from './Views/$/cahierdescharges/cahiercharges-ajout/cahiercharges-ajout.component';
 import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercharges-edit/cahiercharges-edit.component';
 import { CahierchargesListComponent } from './Views/$/cahierdescharges/cahiercharges-list/cahiercharges-list.component';
 import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahiercharges-view-one/cahiercharges-view-one.component';
 import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
+import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
 import { IntervallesAjoutComponent } from './Views/$/intervalles/intervalles-ajout/intervalles-ajout.component';
 import { IntervallesEditComponent } from './Views/$/intervalles/intervalles-edit/intervalles-edit.component';
@@ -78,6 +80,11 @@ const routes: Routes = [
 
   },
   {
+    path:"CritereFinanciereList",
+    component:CriteresFinanciereListComponent
+
+  },
+  {
     path:"modifierCategoriesProjet/:id",
     component: CategoriesprojetEditComponent
   },
@@ -110,6 +117,8 @@ const routes: Routes = [
   component : CahierclauseAjoutComponent},
   { path:"modifierClause/:id",
   component : CahierclauseEditComponent},
+  { path:"modifierClauseFinanciere/:id",
+  component : CahierclauseFinanEditComponent},
  
   {
     path:"intervallesTypeList",

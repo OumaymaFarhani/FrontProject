@@ -191,7 +191,7 @@ idd:any;
       this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesAdministrativesId,idCriter:clause.criteresId,CritereAdmin:true}]);
     }
     else{
-      this.router.navigate(['/home/CritereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesFinancieresTechniquesId,idCriter:clause.criteresId,CritereFinan:true}]);
+      this.router.navigate(['/home/CritereFinanciereList',{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause.cahierClausesFinancieresTechniquesId,idCriter:clause.criteresId,CritereFinan:true}]);
    
     }
 
@@ -201,25 +201,18 @@ idd:any;
   checkClause1(clause1:Cahierclausemodel){
     console.log("*************************************************"+clause1)
     if(clause1.typecahiercharges.typeCahierChargesLibelle=="CCAG" || clause1.typecahiercharges.typeCahierChargesLibelle=="CPS" || clause1.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
-     // this.etatFinenciere=false
-     // this.etatAdmin=true
-      this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesAdministrativesId,idCriter:clause1.criteresId,CritereAdmin:true}]);
+     
+      //this.etatAdmin=true
+      this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesAdministrativesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesAdministrativesId,idCriter:clause1.criteresId,CritereAdmin:true }]);
     }
     else{
-     // this.etatFinenciere=true
+    //this.etatFinenciere=true
       //this.etatAdmin=false
-      this.router.navigate(['/home/modifierClause/'+clause1.cahierClausesFinancieresTechniquesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesFinancieresTechniquesId,idCriter:clause1.criteresId,CritereFinan:true}]);
+      this.router.navigate(['/home/modifierClauseFinanciere/'+clause1.cahierClausesFinancieresTechniquesId,{idch:this.c.cahierChargesId,idType:this.t.typeCahierChargesId,idClause:clause1.cahierClausesFinancieresTechniquesId,idCriter:clause1.criteresId,CritereFinan:true }]);
    
     }
 
   }
 
-/* 
-  test(model:Cahierclausemodel) {
-    if (model.cahierClausesAdministrativesId === this.cc.cahierClausesAdministrativesId) {
-      return this.cc.cahierClausesAdministrativesId;
-    } else if (model.cahierClausesFinancieresTechniquesId === this.b.cahierClausesFinancieresTechniquesId) {
-      return this.b.cahierClausesFinancieresTechniquesId;
-    }
-  } */
+ 
 }
