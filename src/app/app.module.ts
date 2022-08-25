@@ -49,6 +49,9 @@ import { CahierclauseViewOneComponent } from './Views/$/cahierclause/cahierclaus
 import { CahierclauseEditComponent } from './Views/$/cahierclause/cahierclause-edit/cahierclause-edit.component';
 import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
 import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
+import { CahierclauseFinanEditComponent } from './Views/$/cahierclause/cahierclause-finan-edit/cahierclause-finan-edit.component';
+import { CahierclauseFinanViewOneComponent } from './Views/$/cahierclause/cahierclause-finan-view-one/cahierclause-finan-view-one.component';
+import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 
 
 export function Ts(http:HttpClient){
@@ -94,7 +97,10 @@ export function Ts(http:HttpClient){
         CahierclauseViewOneComponent,
         CahierclauseEditComponent,
         CriteresListComponent,
-        CriteresAjoutComponent
+        CriteresAjoutComponent,
+        CahierclauseFinanEditComponent,
+        CahierclauseFinanViewOneComponent,
+        CriteresFinanciereListComponent
   ],
   imports: [
     BrowserModule,

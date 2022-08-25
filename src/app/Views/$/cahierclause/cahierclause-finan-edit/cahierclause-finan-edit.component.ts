@@ -13,11 +13,11 @@ import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categ
 import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typecahiercharges.service';
 
 @Component({
-  selector: 'app-cahierclause-edit',
-  templateUrl: './cahierclause-edit.component.html',
-  styleUrls: ['./cahierclause-edit.component.css']
+  selector: 'app-cahierclause-finan-edit',
+  templateUrl: './cahierclause-finan-edit.component.html',
+  styleUrls: ['./cahierclause-finan-edit.component.css']
 })
-export class CahierclauseEditComponent implements OnInit {
+export class CahierclauseFinanEditComponent implements OnInit {
 
   fff :Categoriesprojet[];
   fun:Categoriesprojet;
@@ -31,7 +31,7 @@ export class CahierclauseEditComponent implements OnInit {
   categorie=new Categoriesprojet();
   t=new Typecahiercharges();
   cahierChargesId:number;
-  ca=new Cahierclausesadministratives();
+ 
   clause=new Cahierclausemodel();
   model=new Cahierclausemodel();
   a:boolean;
@@ -86,9 +86,9 @@ export class CahierclauseEditComponent implements OnInit {
     this.activated.paramMap.subscribe(
       b=>{
         let id =Number(this.activated.snapshot.paramMap.get('idClause'));
-        this.cahierclausesadministrativesService.getONEClause(id).subscribe(
+        this.cahierclausesfinancierestechniquesService.getONEClause(id).subscribe(
           b=>{
-            this.clause=b; console.log("claaaaaaaaaaaaaaause"+this.clause.cahierClausesAdministrativesId)
+            this.clause=b; console.log("claaaaaaaaaaaaaaause"+this.clause.cahierClausesFinancieresTechniquesId)
      
              }
         )  
@@ -102,17 +102,7 @@ export class CahierclauseEditComponent implements OnInit {
 
   
 onSubmit(): void { 
-  if(this.clause.typecahiercharges.typeCahierChargesLibelle=="CCAG" || this.clause.typecahiercharges.typeCahierChargesLibelle=="CPS" || this.clause.typecahiercharges.typeCahierChargesLibelle=="CCAP") {
    
-  this.clause.libelle=this.clause.cahierClausesAdministrativesLibelle
-  this.clause.description=this.clause.cahierClausesAdministrativeDescription
- this.cahierchargesService.updateclause(this.clause).subscribe(
-     ()=> (
-     
-      this.router.navigate(['/home/CahiersdeChargeList/'+this.c.cahierChargesId]))
-  )
-     }
-     else{
       this.clause.libelle=this.clause.cahierDesClauseFinancierTechnqueLibelle
       this.clause.description=this.clause.cahierClausesFinancieresTechniquesDescription
      this.cahierchargesService.updateclause(this.clause).subscribe(
@@ -120,7 +110,7 @@ onSubmit(): void {
          
           this.router.navigate(['/home/CahiersdeChargeList/'+this.c.cahierChargesId]))
       )
-     }
+      
 
 
   console.log("**************************************"+this.clause.categoriesprojet)

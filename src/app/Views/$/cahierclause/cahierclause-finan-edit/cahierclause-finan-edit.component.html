@@ -49,7 +49,7 @@
 			<label class="col-md-2 col-sm-6 col-form-label">{{"libelle" | translate}} :<span class="text-danger">&nbsp;*</span></label>
             <div class="col-md-4 col-sm-12">
 				<input type="text" class="form-control  mb-2" name="libelle" 
-        [(ngModel)]="clause.cahierClausesAdministrativesLibelle"
+        [(ngModel)]="clause.cahierDesClauseFinancierTechnqueLibelle"
 					required #libelle="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted && libelle.errors }" />
 			
@@ -70,7 +70,7 @@
 			<label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
             <div class="col-md-4 col-sm-12">
 				<textarea type="text" class="form-control  " name="description"
-					[(ngModel)]="clause.cahierClausesAdministrativeDescription" maxlength="1000" #description="ngModel"
+					[(ngModel)]="clause.cahierClausesFinancieresTechniquesDescription" maxlength="1000" #description="ngModel"
 					[ngClass]="{ 'is-invalid': f.submitted &&  description.errors }" ></textarea>
 				<div *ngIf="f.submitted &&  description.errors" class="invalid-feedback">
 					<div *ngIf="description.errors['maxlength']">
