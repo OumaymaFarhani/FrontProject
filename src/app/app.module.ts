@@ -52,6 +52,7 @@ import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/crite
 import { CahierclauseFinanEditComponent } from './Views/$/cahierclause/cahierclause-finan-edit/cahierclause-finan-edit.component';
 import { CahierclauseFinanViewOneComponent } from './Views/$/cahierclause/cahierclause-finan-view-one/cahierclause-finan-view-one.component';
 import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
+import { ListCriteresComponent } from './Views/$/criteres/list-criteres/list-criteres.component';
 
 
 export function Ts(http:HttpClient){
@@ -100,7 +101,8 @@ export function Ts(http:HttpClient){
         CriteresAjoutComponent,
         CahierclauseFinanEditComponent,
         CahierclauseFinanViewOneComponent,
-        CriteresFinanciereListComponent
+        CriteresFinanciereListComponent,
+        ListCriteresComponent
   ],
   imports: [
     BrowserModule,
