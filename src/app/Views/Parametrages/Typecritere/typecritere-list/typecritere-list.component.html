@@ -3,7 +3,7 @@
       <div class="col-md-6 col-sm-12">
         <div class="title">
          
-          <h4 class="text-blue h4" style="color: #1b00ff;">{{"liste_categorie_projet" | translate}}</h4>
+          <h4 class="text-blue h4" style="color: #1b00ff;">{{"listetypecri" | translate}}</h4>
   
         </div>
         <nav aria-label="breadcrumb" role="navigation">
@@ -13,7 +13,7 @@
               </a>
             </li>
             <li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
-              {{"liste_categorie_projet" | translate}}
+              {{"listetypecri" | translate}}
             </li>
           </ol>
         </nav>
@@ -30,7 +30,7 @@
       <div class="row justify-content-between pb-3">
   
         <div class="col">
-          <button type="button" [routerLink]="['/home/ajoutercriteres']"
+          <button type="button" [routerLink]="['/home/typecritereajout']"
             class="btn btn-success color-white  col-md-1 col-sm-1 ml-4"><i class="icon-copy fa fa-plus" aria-hidden="true"></i> </button>
   
     
@@ -50,46 +50,35 @@
           <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
           
             
-            
-            <ng-container matColumnDef="criteresId">
+            <ng-container matColumnDef="typeCritereId">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
-              <td mat-cell *matCellDef="let element"> {{element.criteresId}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.typeCritereId}} </td>
             </ng-container>
-              <ng-container matColumnDef="criteresLibelle">
+              <ng-container matColumnDef="typeCritereLibelle">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"libelle" | translate}} </th>
-                <td mat-cell *matCellDef="let element"> {{element.criteresLibelle}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.typeCritereLibelle}} </td>
               </ng-container>
-              <ng-container  matColumnDef="criteresDescription">
+              <ng-container  matColumnDef="typeCritereDescription">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"description" | translate}} </th>
-                <td mat-cell *matCellDef="let element"> {{element.criteresDescription}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.typeCritereDescription}} </td>
               </ng-container>
-              <ng-container matColumnDef="typecritere">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"typecritere" | translate}} </th>
-                <td mat-cell *matCellDef="let element"> {{element.typecritere.typeCritereLibelle}} </td>
-              </ng-container>
+             
   
            
-            <ng-container  matColumnDef="naturecritere">
-              <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"naturecritere" | translate}} </th>
-              <td mat-cell *matCellDef="let element"> {{element.naturecritere.natureCritereLibelle}} </td>
-            </ng-container>
            
-              <ng-container  matColumnDef="categoriesprojet">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef>{{"categorie" | translate}} </th>
-                <td mat-cell *matCellDef="let element"> {{element.categoriesprojet.categoriesProjetDescription}} </td>
-              </ng-container>
-  
+           
+              
             
             <ng-container  matColumnDef="Operations">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"operations" | translate}}  </th>
               <td mat-cell *matCellDef="let element"> 
-                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/CategoriesProjet',element.categoriesProjetId]"
+                <button type="button" class="btn btn-info   mr-2" [routerLink]="['/home/typecritere',element.typeCritereId]"
                 ><i class="dw dw-eye color-white "></i> </button>
   
               <button type="button" class="btn btn-warning  mr-2"
-                [routerLink]="['/home/modifierCategoriesProjet',element.categoriesProjetId]" ><i
+                [routerLink]="['/home/modifiertypecritere',element.typeCritereId]" ><i
                   class="dw dw-edit2 color-white "></i> </button>
-              <button type="button" class="btn btn-danger " (click)="deletee(element,element.categoriesProjetId)"
+              <button type="button" class="btn btn-danger " (click)="deletee(element,element.typeCritereId)"
                 ><i class="dw dw-delete-3 color-white "></i> </button>
   
                 

@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+    float: right;
+  }
+  
+  td, th {
+    width: 10%;
+
+  }
+  tr:hover {
+    background: whitesmoke;
+  }
+  
+  tr:active {
+    background: #efefef;
+  }
+  
+  .mat-column-typeCritereLibelle{
+    flex: none;
+    width: 15%;
+}
+
+.mat-column-typeCritereDescription {
+    flex: none;
+    width: 30%;
+}
+
+
+
+.mat-column-Operations {
+  flex: none;
+  width: 17%;
+}
+
+.mat-column-typeCritereId {
+  flex: none;
+  width: 5%;
+}

@@ -1,3 +1,22 @@
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			
+			<nav aria-label="breadcrumb" role="navigation">
+				<ol class="breadcrumb" style="background: none;">
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/home/critere']">{{"listeCrit" | translate}}
+						</a>
+					</li>
+					<li class="breadcrumb-item active" style="color: #1b00ff;" aria-current="page">
+						{{"ajout-critere" | translate}}
+					</li>
+				</ol>
+			</nav>
+		</div>
+		
+	</div>
+</div>
 <div class="card-box mb-30">
     <div class="pd-20 card-box mb-30">
  
@@ -20,15 +39,17 @@
         <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :</label>
         <div class="col-md-4 col-sm-12">
 				
-            <select class="form-control" name="typecritere" id="typecritere" >
-              
-                <option class="fa" *ngFor="let fun of fff" 
-                 [selected]="critere.typecritere.typeCritereId === fun.typecritere.typeCritereId"
-                 [ngValue]="fun">{{fun.typecritere.typeCritereLibelle}}</option>
+            <select class="form-control" name="typecritere" id="typecritere" #typecritere="ngModel" [(ngModel)]="tcri" 
+            [ngClass]="{'invalid-textbox' : f.submitted && typecritere.invalid }" required   >
+                
+                <option class="fa" *ngFor="let tun of ttt" 
+                [ngValue]="tun">{{tun.typeCritereLibelle}}</option>
             </select>
-
+            <div *ngIf="typecritere.invalid && f.submitted">
+                <span style="color: red;">{{"categories" | translate}} {{"champ_obligatoire" | translate}} </span>
+              </div> 
         <br/>
-        <!-- {{c.categoriesprojet | json}} -->
+       
         </div>
         </div>
 
@@ -47,19 +68,28 @@
 		</div>
         <label class="col-md-2 col-sm-6 col-form-label">{{"nature" | translate}} :</label>
         <div class="col-md-4 col-sm-12">
-            
-    </div>
+				
+            <select class="form-control" name="naturecritere" id="naturecritere"#naturecritere="ngModel" [(ngModel)]="ncri" 
+            [ngClass]="{'invalid-textbox' : f.submitted && naturecritere.invalid }" required >
+                
+                <option class="fa" *ngFor="let nun of nnn" 
+                [ngValue]="nun">{{nun.natureCritereLibelle}}</option>
+            </select>
+            <div *ngIf="naturecritere.invalid && f.submitted">
+                <span style="color: red;">{{"categories" | translate}} {{"champ_obligatoire" | translate}} </span>
+              </div> 
+        <br/>
+        </div>
         </div>
         <div class=" row">
 		
 			<label class="col-md-2 col-sm-6 col-form-label">{{"Eliminatoire" | translate}} :<span class="text-danger">&nbsp;*</span></label>
             <div class="col-md-4 col-sm-12">
-                   
-                      <input type="radio" name="criteresElimination" value="oui" [(ngModel)]="critere.criteresElimination">
+                     <input type="radio" name="criteresElimination" value="true" [(ngModel)]="critere.criteresElimination">
                       Oui
                    
                     
-                      <input type="radio" name="criteresElimination" value="nom" [(ngModel)]="critere.criteresElimination">
+                      <input type="radio" name="criteresElimination" value="false" [(ngModel)]="critere.criteresElimination">
                       Non
                  
                   
@@ -67,8 +97,26 @@
 		</div>
         <label class="col-md-2 col-sm-6 col-form-label">{{"categories" | translate}} :</label>
         <div class="col-md-4 col-sm-12">
+				
+            <select class="form-control" name="categoriesprojet" id="categoriesprojet"
+            #categoriesprojet="ngModel" [(ngModel)]="categorie" 
+    [ngClass]="{'invalid-textbox' : f.submitted && categoriesprojet.invalid }" required>
+           >
+         
+              
+                <option class="fa" *ngFor="let fun of fff"  [ngValue]="fun">{{fun.categoriesProjetLibelle}}</option>
             
-    </div>
+            
+            </select>
+            
+
+
+            <div *ngIf="categoriesprojet.invalid && f.submitted">
+                <span style="color: red;">{{"categories" | translate}} {{"champ_obligatoire" | translate}} </span>
+              </div> 
+        <br/>
+        <!-- {{c.categoriesProjetId | json}} -->
+        </div>
         </div>
         <div class="row">
             <label class="col-md-2 col-sm-6 col-form-label">{{"description" | translate}} :</label>
@@ -101,7 +149,7 @@
 		
 			
 			<button type="submit" class="btn btn-success color-white  offset-7  col-2 ">{{"btn_ajout" | translate}}</button>
-			<button type="button" class="btn  btn-secondary  color-white  col-2 ml-1 "  [routerLink]="['/home/CahiersdeCharge/',c.cahierChargesId]">{{"btn_annulation" | translate}}</button>
+			<button type="button" class="btn  btn-secondary  color-white  col-2 ml-1 "  [routerLink]="['/home/critere']">{{"btn_annulation" | translate}}</button>
 	
 		</div>
 	</form>

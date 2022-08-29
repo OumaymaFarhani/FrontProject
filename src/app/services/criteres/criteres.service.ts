@@ -18,4 +18,17 @@ export class CriteresService {
   getOneCritere(id: number){
     return this.http.get<Criteres>(this.baseUrl+"/critere/affichercriteres/" +id);
   }
+
+  
+  createCritere(typecritere:Criteres){
+    return this.http.post(this.baseUrl+ "/critere/ajouterCritere",typecritere);
+  }
+
+  updateCritere(typecritere:Criteres){
+    return this.http.put(this.baseUrl+"/critere/modifierCritere",typecritere);
+  }
+  
+  deleteCritere(id: number){
+    return this.http.delete(this.baseUrl+"/critere/supprimerCritere/" +id);
+  }
 }

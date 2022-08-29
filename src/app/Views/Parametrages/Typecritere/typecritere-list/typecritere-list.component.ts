@@ -1,19 +1,16 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Categoriesprojet } from 'src/app/models/categoriesprojet';
-import { Criteres } from 'src/app/models/criteres';
-import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
-import { CriteresService } from 'src/app/services/criteres/criteres.service';
+import { TypeCritere } from 'src/app/models/type-critere';
+import { TypecritereService } from 'src/app/services/typecritere/typecritere.service';
 import swal from 'sweetalert';
 @Component({
-  selector: 'app-list-criteres',
-  templateUrl: './list-criteres.component.html',
-  styleUrls: ['./list-criteres.component.css']
+  selector: 'app-typecritere-list',
+  templateUrl: './typecritere-list.component.html',
+  styleUrls: ['./typecritere-list.component.css']
 })
-export class ListCriteresComponent implements OnInit {
+export class TypecritereListComponent implements OnInit {
 
   title="pagination";
   page : number=1;
@@ -22,16 +19,16 @@ export class ListCriteresComponent implements OnInit {
   tableSizes : any=['ALL',5 ,10 ,15 ,20];
   L: any = [];
   d:any[];
-  categorie: Categoriesprojet[];
-  displayedColumns= [  'criteresId','criteresLibelle','criteresDescription','typecritere','naturecritere','categoriesprojet','Operations']
+   
+  displayedColumns= ['typeCritereId','typeCritereLibelle','typeCritereDescription','Operations']
   dataSource !:MatTableDataSource<any>;
   @ViewChild('paginator') paginator! :MatPaginator;
   @ViewChild(MatSort) matSort! : MatSort;
 
-  constructor(private categorieProjetService : CategoriesprojetService,private critereService:CriteresService) { }
+  constructor(private typecritereService : TypecritereService) { }
 
   ngOnInit(): void {
-    this.critereService.getAllCritere().subscribe((response:any)=>{
+    this.typecritereService.getAlltypeCritere().subscribe((response:any)=>{
      
       this.dataSource=new MatTableDataSource(response);
       this.dataSource.paginator= this.paginator;
@@ -45,7 +42,7 @@ export class ListCriteresComponent implements OnInit {
 
   }
    // Delete 
-   deletee(cc:Criteres,id:number) {
+   deletee(cc:TypeCritere,id:number) {
     
     swal({
       title: "Etes-vous sûr de vouloir supprimer cet enregistrement?",
@@ -59,7 +56,7 @@ export class ListCriteresComponent implements OnInit {
         if (willDelete) {
           let i =this.L.indexOf(cc)
           
-          this.critereService.deleteCritere(cc.criteresId).subscribe(
+          this.typecritereService.deletetypeCritere(cc.typeCritereId).subscribe(
             
             ()=>{this.L.splice(i,1);
 this.ngOnInit();
@@ -70,4 +67,5 @@ this.ngOnInit();
  
   } 
   
+
 }

@@ -53,6 +53,13 @@ import { CahierclauseFinanEditComponent } from './Views/$/cahierclause/cahiercla
 import { CahierclauseFinanViewOneComponent } from './Views/$/cahierclause/cahierclause-finan-view-one/cahierclause-finan-view-one.component';
 import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 import { ListCriteresComponent } from './Views/$/criteres/list-criteres/list-criteres.component';
+import { TypecritereListComponent } from './Views/Parametrages/Typecritere/typecritere-list/typecritere-list.component';
+import { TypecritereAjoutComponent } from './Views/Parametrages/Typecritere/typecritere-ajout/typecritere-ajout.component';
+import { TypecritereEditComponent } from './Views/Parametrages/Typecritere/typecritere-edit/typecritere-edit.component';
+import { TypecritereViewOneComponent } from './Views/Parametrages/Typecritere/typecritere-view-one/typecritere-view-one.component';
+import { CriteresEditComponent } from './Views/$/criteres/criteres-edit/criteres-edit.component';
+import { CriteresViewOneComponent } from './Views/$/criteres/criteres-view-one/criteres-view-one.component';
+import { CriteresAjouterComponent } from './Views/$/criteres/criteres-ajouter/criteres-ajouter.component';
 
 
 export function Ts(http:HttpClient){
@@ -102,7 +109,14 @@ export function Ts(http:HttpClient){
         CahierclauseFinanEditComponent,
         CahierclauseFinanViewOneComponent,
         CriteresFinanciereListComponent,
-        ListCriteresComponent
+        ListCriteresComponent,
+        TypecritereListComponent,
+        TypecritereAjoutComponent,
+        TypecritereEditComponent,
+        TypecritereViewOneComponent,
+        CriteresEditComponent,
+        CriteresViewOneComponent,
+        CriteresAjouterComponent
   ],
   imports: [
     BrowserModule,
