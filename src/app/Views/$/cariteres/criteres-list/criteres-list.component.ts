@@ -17,7 +17,9 @@ import { CahierclausesfinancierestechniquesService } from 'src/app/services/cahi
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 import { CriteresService } from 'src/app/services/criteres/criteres.service';
 import { CriterescahierclausesadministrativesService } from 'src/app/services/criterescahierclausesadministratives/criterescahierclausesadministratives.service';
+import { NaturecritereService } from 'src/app/services/naturecritere/naturecritere.service';
 import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typecahiercharges.service';
+import { TypecritereService } from 'src/app/services/typecritere/typecritere.service';
 
 @Component({
   selector: 'app-criteres-list',
@@ -26,6 +28,8 @@ import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typ
 })
 export class CriteresListComponent implements OnInit {
   etatInsertCritere:boolean=false;
+  fff :Criteres[];
+  fun:Criteres;
   c= new Cahiercharges();
   t= new Typecahiercharges();
   clauseAdmin1=new Cahierclausesadministratives();
@@ -51,7 +55,7 @@ export class CriteresListComponent implements OnInit {
     categoriesprojet:'',
     acceptTerms: false,
 };
-  constructor(private critereService:CriteresService,private router: Router,private criterescahierclausesadministrativesService:CriterescahierclausesadministrativesService, private activated:ActivatedRoute,private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService) { }
+  constructor(private critereService:CriteresService,private typecritereService:TypecritereService,private naturecritereservice:NaturecritereService,private router: Router,private criterescahierclausesadministrativesService:CriterescahierclausesadministrativesService, private activated:ActivatedRoute,private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService) { }
 
   ngOnInit(): void {
     
@@ -126,6 +130,11 @@ export class CriteresListComponent implements OnInit {
         )  
       }
     );
+
+    this.typecritereService.getAlltypeCritere().subscribe((response:any)=>{
+      console.log(response);
+      this.fff=response
+  });
 }
 
 changeEtat(){

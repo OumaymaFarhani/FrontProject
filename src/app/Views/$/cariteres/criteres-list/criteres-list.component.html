@@ -128,9 +128,18 @@
     </div>
           </div>
       <label class="col-md-2 col-sm-6 col-form-label">{{"type" | translate}} :</label>
-          <div class="col-md-4 col-sm-12">
- <!-- {{clauseAdmin1.typecahiercharges.typeCahierChargesLibelle}} -->
-           </div>
+      <div class="col-md-4 col-sm-12">
+				
+        <select class="form-control" name="typecritere" id="typecritere" >
+          
+            <option class="fa" *ngFor="let fun of fff" 
+             [selected]="critere.typecritere.typeCritereId === fun.typecritere.typeCritereId"
+             [ngValue]="fun">{{fun.typecritere.typeCritereLibelle}}</option>
+        </select>
+
+    <br/>
+    <!-- {{c.categoriesprojet | json}} -->
+    </div>
   </div>
 
       <div class=" row">

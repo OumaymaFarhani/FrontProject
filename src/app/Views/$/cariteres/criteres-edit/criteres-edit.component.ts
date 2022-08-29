@@ -17,12 +17,13 @@ import { CriterescahierclausesadministrativesService } from 'src/app/services/cr
 import { CriterescahierclausesfinancierestechniquesService } from 'src/app/services/criterescahierclausesfinancierestechniques/criterescahierclausesfinancierestechniques.service';
 import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typecahiercharges.service';
 
+
 @Component({
-  selector: 'app-criteres-ajout',
-  templateUrl: './criteres-ajout.component.html',
-  styleUrls: ['./criteres-ajout.component.css']
+  selector: 'app-criteres-edit',
+  templateUrl: './criteres-edit.component.html',
+  styleUrls: ['./criteres-edit.component.css']
 })
-export class CriteresAjoutComponent implements OnInit {
+export class CriteresEditComponent implements OnInit {
   fff :Criteres[];
   fun:Criteres;
   typeCahierCharge:Typecahiercharges;
@@ -53,6 +54,7 @@ export class CriteresAjoutComponent implements OnInit {
 };
 
   ngOnInit(): void {
+   
     this.activated.paramMap.subscribe(
       d=>{
         this.id =Number(d.get('id'));
@@ -84,7 +86,6 @@ onSubmit(): void {
 onReset(form: NgForm): void {
   form.reset();
 }
-
 
 
 }

@@ -15,6 +15,9 @@ import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahier
 import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
 import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
+import { CriteresAjouterComponent } from './Views/$/criteres/criteres-ajouter/criteres-ajouter.component';
+import { CriteresEditComponent } from './Views/$/criteres/criteres-edit/criteres-edit.component';
+import { CriteresViewOneComponent } from './Views/$/criteres/criteres-view-one/criteres-view-one.component';
 import { ListCriteresComponent } from './Views/$/criteres/list-criteres/list-criteres.component';
 import { IntervallesAjoutComponent } from './Views/$/intervalles/intervalles-ajout/intervalles-ajout.component';
 import { IntervallesEditComponent } from './Views/$/intervalles/intervalles-edit/intervalles-edit.component';
@@ -37,6 +40,10 @@ import { NatureCritereviewOneComponent } from './Views/Parametrages/nature-crite
 import { NaturecritereAjoutComponent } from './Views/Parametrages/nature-critere/naturecritere-ajout/naturecritere-ajout.component';
 import { NaturecritereEditComponent } from './Views/Parametrages/nature-critere/naturecritere-edit/naturecritere-edit.component';
 import { NaturecritereListComponent } from './Views/Parametrages/nature-critere/naturecritere-list/naturecritere-list.component';
+import { TypecritereAjoutComponent } from './Views/Parametrages/Typecritere/typecritere-ajout/typecritere-ajout.component';
+import { TypecritereEditComponent } from './Views/Parametrages/Typecritere/typecritere-edit/typecritere-edit.component';
+import { TypecritereListComponent } from './Views/Parametrages/Typecritere/typecritere-list/typecritere-list.component';
+import { TypecritereViewOneComponent } from './Views/Parametrages/Typecritere/typecritere-view-one/typecritere-view-one.component';
 
 const routes: Routes = [
   {
@@ -190,6 +197,34 @@ const routes: Routes = [
   {
     path:"critere",
     component: ListCriteresComponent
+  },
+  {
+    path:"critere/:id",
+    component: CriteresViewOneComponent
+  },
+  {
+    path:"ajoutercriteres",
+    component: CriteresAjouterComponent
+  },
+  {
+    path:"modifiercritere/:id",
+    component: CriteresEditComponent
+  },
+  {
+    path:"typecritereList",
+    component: TypecritereListComponent
+  },
+  {
+    path:"typecritereajout",
+    component: TypecritereAjoutComponent
+  },
+  {
+    path:"typecritere/:id",
+    component:  TypecritereViewOneComponent
+  },
+  {
+    path:"modifiertypecritere/:id",
+    component:  TypecritereEditComponent
   }
 
 ]},
