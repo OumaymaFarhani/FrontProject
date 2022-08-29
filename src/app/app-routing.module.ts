@@ -15,6 +15,7 @@ import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahier
 import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
 import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
+import { ListCriteresComponent } from './Views/$/criteres/list-criteres/list-criteres.component';
 import { IntervallesAjoutComponent } from './Views/$/intervalles/intervalles-ajout/intervalles-ajout.component';
 import { IntervallesEditComponent } from './Views/$/intervalles/intervalles-edit/intervalles-edit.component';
 import { IntervallesListComponent } from './Views/$/intervalles/intervalles-list/intervalles-list.component';
@@ -185,6 +186,10 @@ const routes: Routes = [
   {
     path:"cahierchargeTypeListAjout",
     component:  CahierchargestypeAjoutComponent
+  },
+  {
+    path:"critere",
+    component: ListCriteresComponent
   }
 
 ]},
