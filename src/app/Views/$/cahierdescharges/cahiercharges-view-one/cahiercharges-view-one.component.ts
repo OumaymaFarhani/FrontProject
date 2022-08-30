@@ -55,7 +55,7 @@ idd:any;
   l:any=[];
  etat:boolean;
   constructor(private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService,private router: Router, private activated:ActivatedRoute) { }
-  
+ 
   ajouter(){
     this.activated.paramMap.subscribe(
       d=>{
@@ -122,10 +122,7 @@ idd:any;
     );
 
     console.log("=====================>"+this.c.cahierChargesId)
-    this.cahierchargesService.afficherclauserestant(this.c.cahierChargesId).subscribe((response:any)=>{
-      console.log("message"+response)
-      this.listTypeCahierCharge=response
-  });
+   
     this.activated.paramMap.subscribe(
       d=>{
         let id =Number(d.get('id'));
@@ -254,5 +251,27 @@ idd:any;
 
    
  
- 
+      generer(){
+        this.activated.paramMap.subscribe(
+          d=>{
+            let id =Number(d.get('id'));
+            console.log("===========>"+id)
+            this.cahierchargesService.getOnecahiercharges(id).subscribe(
+              d=>{
+                this.c=d;
+                console.log("aaaaaaaaaaaa "+this.c.cahierChargesDescription)
+                
+        console.log("=====================>"+this.c.cahierChargesId)
+                }
+            )  
+          }
+          
+        );
+        this.c.categoriesprojet=this.c.categoriesprojet
+        this.cahierchargesService.genererClause(this.c.cahierChargesId).subscribe((response:any)=>{
+          this.ngOnInit();
+        });
+       
+   console.log("****************")
+      }
 }

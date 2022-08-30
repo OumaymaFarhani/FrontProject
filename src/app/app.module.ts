@@ -60,6 +60,8 @@ import { TypecritereViewOneComponent } from './Views/Parametrages/Typecritere/ty
 import { CriteresEditComponent } from './Views/$/criteres/criteres-edit/criteres-edit.component';
 import { CriteresViewOneComponent } from './Views/$/criteres/criteres-view-one/criteres-view-one.component';
 import { CriteresAjouterComponent } from './Views/$/criteres/criteres-ajouter/criteres-ajouter.component';
+import { CriteresAdminEditComponent } from './Views/$/cariteres/criteresAdmin-edit/criteresAdmin-edit.component';
+import { CriteresFinanciereEditComponent } from './Views/$/cariteres/criteres-financiere-edit/criteres-financiere-edit.component';
 
 
 export function Ts(http:HttpClient){
@@ -116,7 +118,9 @@ export function Ts(http:HttpClient){
         TypecritereViewOneComponent,
         CriteresEditComponent,
         CriteresViewOneComponent,
-        CriteresAjouterComponent
+        CriteresAjouterComponent,
+        CriteresAdminEditComponent,
+        CriteresFinanciereEditComponent
   ],
   imports: [
     BrowserModule,

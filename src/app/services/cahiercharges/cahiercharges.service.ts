@@ -62,5 +62,7 @@ export class CahierchargesService {
     return this.http.put(this.baseUrl+"/cahiercharges/modifierclause",c);
   }
 
-
+  genererClause(id:number){
+    return this.http.get(this.baseUrl+"/cahiercharges/vvvv/"+id);
+  }
 }

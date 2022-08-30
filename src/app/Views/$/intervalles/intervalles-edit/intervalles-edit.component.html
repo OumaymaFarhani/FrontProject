@@ -60,9 +60,11 @@
 		<div class="row">
 			<label class="col-md-2 col-sm-6 col-form-label">{{"OperateursSuperieur" | translate}} :</label>
 			 <div class="col-md-4 col-sm-12">
-                <select class="form-control" name="operateursByOperateursSuperieurId" id="operateursByOperateursSuperieurId" 
-				#operateursByOperateursSuperieurId="ngModel" [(ngModel)]="operateurs2.operateursId" 
-          >
+                <select class="form-control" name="operateursByOperateursSuperieurId" 
+				id="operateursByOperateursSuperieurId" 
+				#operateursByOperateursSuperieurId="ngModel"
+				 [(ngModel)]="operateurs2.operateursId" 
+          		>
 			 
 				   <option value=" "disabled > </option>
 					<option class="fa"
