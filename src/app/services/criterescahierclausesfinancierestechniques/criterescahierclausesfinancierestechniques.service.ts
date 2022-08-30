@@ -13,20 +13,20 @@ export class CriterescahierclausesfinancierestechniquesService {
   getAllCriterescahierclausesfinancierestechniques(){
     return this.http.get(this.baseUrl+"/criterescahierclausesfinancierestechniques/afficherCritere");
   }
-  getOneCriterescahierclausesfinancierestechniquestype(id: number){
-    return this.http.get<Criterescahierclausesfinancierestechniques>(this.baseUrl+"/criterescahierclausesfinancierestechniques/afficherOne/" +id);
+  getOneCriterescahierclausesfinancierestechniquestype(id1: number,id2:number){
+    return this.http.get<Criterescahierclausesfinancierestechniques>(this.baseUrl+"/criterescahierclausesfinancierestechniques/afficherOne/" +id1+"/"+id2);
   }
 
 
- 
 
-
-
-  getAllCritereAdmin(id:number){
+  getAllCritereFinanciere(id:number){
     return this.http.get(this.baseUrl+"/criterescahierclausesfinancierestechniques/affichercriteres/"+id);
   }
 
   createCritereFinanciere(cc:Criterescahierclausesfinancierestechniques){
     return this.http.post(this.baseUrl+"/criterescahierclausesfinancierestechniques/ajoutercriterescahierclausesfinancierestechniques",cc);
+  }
+  updadteCritereFinan(c:Criterescahierclausesfinancierestechniques){
+    return this.http.put(this.baseUrl+"/criterescahierclausesfinancierestechniques/modifiercriterescahierclausesfinancierestechniques",c);
   }
 }

@@ -13,8 +13,10 @@ import { CahierchargesEditComponent } from './Views/$/cahierdescharges/cahiercha
 import { CahierchargesListComponent } from './Views/$/cahierdescharges/cahiercharges-list/cahiercharges-list.component';
 import { CahierchargesViewOneComponent } from './Views/$/cahierdescharges/cahiercharges-view-one/cahiercharges-view-one.component';
 import { CriteresAjoutComponent } from './Views/$/cariteres/criteres-ajout/criteres-ajout.component';
+import { CriteresFinanciereEditComponent } from './Views/$/cariteres/criteres-financiere-edit/criteres-financiere-edit.component';
 import { CriteresFinanciereListComponent } from './Views/$/cariteres/criteres-financiere-list/criteres-financiere-list.component';
 import { CriteresListComponent } from './Views/$/cariteres/criteres-list/criteres-list.component';
+import { CriteresAdminEditComponent } from './Views/$/cariteres/criteresAdmin-edit/criteresAdmin-edit.component';
 import { CriteresAjouterComponent } from './Views/$/criteres/criteres-ajouter/criteres-ajouter.component';
 import { CriteresEditComponent } from './Views/$/criteres/criteres-edit/criteres-edit.component';
 import { CriteresViewOneComponent } from './Views/$/criteres/criteres-view-one/criteres-view-one.component';
@@ -207,8 +209,12 @@ const routes: Routes = [
     component: CriteresAjouterComponent
   },
   {
-    path:"modifiercritere/:id",
-    component: CriteresEditComponent
+    path:"modifiercritere/:id1/:id2",
+    component: CriteresAdminEditComponent
+  },
+  {
+    path:"modifiercriterefinan/:id1/:id2",
+    component: CriteresFinanciereEditComponent
   },
   {
     path:"typecritereList",

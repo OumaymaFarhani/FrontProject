@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CriteresEditComponent } from './criteres-edit.component';
+import { CriteresAdminEditComponent } from './criteresAdmin-edit.component';
 
 describe('CriteresEditComponent', () => {
-  let component: CriteresEditComponent;
-  let fixture: ComponentFixture<CriteresEditComponent>;
+  let component: CriteresAdminEditComponent;
+  let fixture: ComponentFixture<CriteresAdminEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CriteresEditComponent ]
+      declarations: [ CriteresAdminEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CriteresEditComponent);
+    fixture = TestBed.createComponent(CriteresAdminEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

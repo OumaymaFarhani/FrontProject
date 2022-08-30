@@ -232,7 +232,7 @@
              
               <ng-container matColumnDef="criteresId">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"ref" | translate}}. </th>
-                 <td mat-cell *matCellDef="let element"> {{element.criteres.criteresId}} </td> 
+                 <td mat-cell *matCellDef="let element"> {{element.id.criteresId}} </td> 
               </ng-container>
               <ng-container matColumnDef="criteresLibelle">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"libelle" | translate}} </th>
@@ -261,7 +261,7 @@
                   <button type="button" class="btn btn-info   mr-2"  
                   ><i class="dw dw-eye color-white "></i> </button>
                 <button type="button" class="btn btn-warning  mr-2"
-                  [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i
+                (click)="check(element)"  ><i
                     class="dw dw-edit2 color-white "></i> </button>
                     <button type="button" class="btn btn-danger "
                     [routerLink]="['/home/modifierCahiersdeCharge',element.cahierChargesId]" ><i

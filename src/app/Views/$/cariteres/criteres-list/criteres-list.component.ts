@@ -31,6 +31,8 @@ export class CriteresListComponent implements OnInit {
   fff :Criteres[];
   fun:Criteres;
   c= new Cahiercharges();
+  cahierAdmin=new Cahierclausesadministratives();
+  
   t= new Typecahiercharges();
   clauseAdmin1=new Cahierclausesadministratives();
   clauseAdmin=new Cahierclausemodel();
@@ -135,6 +137,36 @@ export class CriteresListComponent implements OnInit {
       console.log(response);
       this.fff=response
   });
+
+  this.activated.paramMap.subscribe(
+    d=>{
+     
+      let id1 =Number(this.activated.snapshot.paramMap.get('id1'));
+ 
+     
+      this.cahierclausesadministrativesService.getONEClauseAdmin(id1).subscribe(
+        d=>{
+          this.cahierAdmin=d;
+          console.log("heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+this.cahierAdmin.cahierClausesAdministrativeDescription)
+      
+          }
+          
+      )  
+        
+    }
+  );
+
+  this.activated.paramMap.subscribe(
+    d=>{
+      let id2 =Number(d.get('id2'));
+      
+      this.critereService.getOneCritere(id2).subscribe(
+        d=>{
+          this.critere=d;
+          }
+      )  
+    }
+  );
 }
 
 changeEtat(){
@@ -159,6 +191,16 @@ filterData ($event:any) {
   this.dataSource.filter=$event.target.value;
 
 }
+
+check(cria:Criterescahierclausesadministratives){
+    cahierclausesadministratives:Cahierclausesadministratives;
+  console.log("**************************=>"+cria.criteres.criteresId,cria.cahierclausesadministratives.cahierClausesAdministrativesId)
+  console.log("**************************=>"+cria.criteres.criteresId,cria.cahierclausesadministratives.cahierClausesAdministrativesId)
+    this.router.navigate(['/home/modifiercritere/'+cria.cahierclausesadministratives.cahierClausesAdministrativesId+"/"+cria.criteres.criteresId,{id1:cria.cahierclausesadministratives.cahierClausesAdministrativesId,id2:cria.criteres.criteresId }]);
+ 
+  }
+
+
 
 onReset(form: NgForm): void {
   form.reset();

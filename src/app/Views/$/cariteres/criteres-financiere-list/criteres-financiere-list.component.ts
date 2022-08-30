@@ -11,6 +11,7 @@ import { Cahierclausesfinancierestechniques } from 'src/app/models/cahierclauses
 import { Categoriesprojet } from 'src/app/models/categoriesprojet';
 import { Criteres } from 'src/app/models/criteres';
 import { Criterescahierclausesadministratives } from 'src/app/models/criterescahierclausesadministratives';
+import { Criterescahierclausesfinancierestechniques } from 'src/app/models/criterescahierclausesfinancierestechniques';
 import { Typecahiercharges } from 'src/app/models/typecahiercharges';
 import { CahierchargesService } from 'src/app/services/cahiercharges/cahiercharges.service';
 import { CahierclausesadministrativesService } from 'src/app/services/cahierclausesadministratives/cahierclausesadministratives.service';
@@ -18,6 +19,7 @@ import { CahierclausesfinancierestechniquesService } from 'src/app/services/cahi
 import { CategoriesprojetService } from 'src/app/services/categoriesprojet/categoriesprojet.service';
 import { CriteresService } from 'src/app/services/criteres/criteres.service';
 import { CriterescahierclausesadministrativesService } from 'src/app/services/criterescahierclausesadministratives/criterescahierclausesadministratives.service';
+import { CriterescahierclausesfinancierestechniquesService } from 'src/app/services/criterescahierclausesfinancierestechniques/criterescahierclausesfinancierestechniques.service';
 import { TypecahierchargesService } from 'src/app/services/typecahiercharges/typecahiercharges.service';
 
 @Component({
@@ -54,7 +56,7 @@ export class CriteresFinanciereListComponent implements OnInit {
     categoriesprojet:'',
     acceptTerms: false,
 };
-  constructor(private critereService:CriteresService,private router: Router,private criterescahierclausesadministrativesService:CriterescahierclausesadministrativesService, private activated:ActivatedRoute,private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService) { }
+  constructor(private criterefinan:CriterescahierclausesfinancierestechniquesService,private critereService:CriteresService,private router: Router,private criterescahierclausesadministrativesService:CriterescahierclausesadministrativesService, private activated:ActivatedRoute,private cahierchargesService : CahierchargesService,private typeCahierChargeService: TypecahierchargesService,private cahierclausesadministrativesService :CahierclausesadministrativesService,private cahierclausesfinancierestechniquesService: CahierclausesfinancierestechniquesService,private categorieProjetService : CategoriesprojetService) { }
 
   ngOnInit(): void {
     
@@ -102,15 +104,17 @@ export class CriteresFinanciereListComponent implements OnInit {
     this.activated.paramMap.subscribe(
       a=>{
         let id =Number(this.activated.snapshot.paramMap.get('idClause'));
-        this.criterescahierclausesadministrativesService.getAllCritereAdmin(id).subscribe((response:any)=>{
+        this.criterefinan.getAllCritereFinanciere(id).subscribe((response:any)=>{
           this.dataSource=new MatTableDataSource(response);
           console.log(response);
           this.dataSource.paginator= this.paginator;
           this.dataSource.sort= this.matSort;
+          console.log("***************************"
+    +this.dataSource)
         } 
-      
+     
     );
-  
+    
 
  
 
@@ -153,6 +157,13 @@ filterData ($event:any) {
 
 }
 
+check(crf:Criterescahierclausesfinancierestechniques){
+  cahierclausesadministratives:Cahierclausesadministratives;
+console.log("**************************=>"+crf.criteres.criteresId,crf.cahierclausesfinancierestechniques.cahierClausesFinancieresTechniquesId)
+console.log("**************************=>"+crf.criteres.criteresId,crf.cahierclausesfinancierestechniques.cahierClausesFinancieresTechniquesId)
+  this.router.navigate(['/home/modifiercriterefinan/'+crf.cahierclausesfinancierestechniques.cahierClausesFinancieresTechniquesId+"/"+crf.criteres.criteresId,{id1:crf.cahierclausesfinancierestechniques.cahierClausesFinancieresTechniquesId,id2:crf.criteres.criteresId }]);
+
+}
 onReset(form: NgForm): void {
   form.reset();
 }

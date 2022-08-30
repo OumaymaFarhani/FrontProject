@@ -4,5 +4,6 @@ export class Categoriesprojet {
 	categoriesProjetLibelle:string;
 
     categoriesProjetDescription:string;
+    
 
 }
